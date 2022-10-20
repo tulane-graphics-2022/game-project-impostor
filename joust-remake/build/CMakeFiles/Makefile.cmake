@@ -11,19 +11,37 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.24.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.24.1/CMakeSystem.cmake"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/CMakeLists.txt"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/src/CMakeLists.txt"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/src/glfw3.pc.in"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/src/glfw3Config.cmake.in"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/src/glfw_config.h.in"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/path/path.cpp.in"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeCInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeDependentOption.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeGenericSystem.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeInitializeConfigs.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeLanguageInformation.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakePackageConfigHelpers.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CheckCSourceCompiles.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CheckIncludeFile.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/CheckLibraryExists.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Compiler/AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Compiler/Clang.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Compiler/GNU.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/FindPackageMessage.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/FindThreads.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/GNUInstallDirs.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/MacOSXBundleInfo.plist.in"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Platform/Apple-Clang-C.cmake"
@@ -32,6 +50,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Platform/Darwin.cmake"
   "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/opt/homebrew/Cellar/cmake/3.24.1/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
   )
 
 # The corresponding makefile is:
@@ -42,9 +61,23 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/path/path.cpp"
+  "joust-remake.app/Contents/MacOS"
+  "joust-remake.app/Contents/Info.plist"
+  "joust-remake.app/Contents/Info.plist"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw-3.3.7/src/glfw3Config.cmake"
+  "glfw-3.3.7/src/glfw3ConfigVersion.cmake"
+  "glfw-3.3.7/src/glfw_config.h"
+  "glfw-3.3.7/src/glfw3.pc"
+  "glfw-3.3.7/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw-3.3.7/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/glad.dir/DependInfo.cmake"
+  "CMakeFiles/joust-remake.dir/DependInfo.cmake"
+  "glfw-3.3.7/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
+  "glfw-3.3.7/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   )

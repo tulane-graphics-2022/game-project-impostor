@@ -116,6 +116,250 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named glad
+
+# Build rule for target.
+glad: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glad
+.PHONY : glad
+
+# fast build rule for target.
+glad/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/build
+.PHONY : glad/fast
+
+#=============================================================================
+# Target rules for targets named joust-remake
+
+# Build rule for target.
+joust-remake: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 joust-remake
+.PHONY : joust-remake
+
+# fast build rule for target.
+joust-remake/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/build
+.PHONY : joust-remake/fast
+
+#=============================================================================
+# Target rules for targets named update_mappings
+
+# Build rule for target.
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 update_mappings
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/update_mappings.dir/build.make glfw-3.3.7/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/glfw.dir/build.make glfw-3.3.7/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+glfw-3.3.7/deps/glad_gl.o: glfw-3.3.7/deps/glad_gl.c.o
+.PHONY : glfw-3.3.7/deps/glad_gl.o
+
+# target to build an object file
+glfw-3.3.7/deps/glad_gl.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_gl.c.o
+.PHONY : glfw-3.3.7/deps/glad_gl.c.o
+
+glfw-3.3.7/deps/glad_gl.i: glfw-3.3.7/deps/glad_gl.c.i
+.PHONY : glfw-3.3.7/deps/glad_gl.i
+
+# target to preprocess a source file
+glfw-3.3.7/deps/glad_gl.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_gl.c.i
+.PHONY : glfw-3.3.7/deps/glad_gl.c.i
+
+glfw-3.3.7/deps/glad_gl.s: glfw-3.3.7/deps/glad_gl.c.s
+.PHONY : glfw-3.3.7/deps/glad_gl.s
+
+# target to generate assembly for a file
+glfw-3.3.7/deps/glad_gl.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_gl.c.s
+.PHONY : glfw-3.3.7/deps/glad_gl.c.s
+
+glfw-3.3.7/deps/glad_vulkan.o: glfw-3.3.7/deps/glad_vulkan.c.o
+.PHONY : glfw-3.3.7/deps/glad_vulkan.o
+
+# target to build an object file
+glfw-3.3.7/deps/glad_vulkan.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_vulkan.c.o
+.PHONY : glfw-3.3.7/deps/glad_vulkan.c.o
+
+glfw-3.3.7/deps/glad_vulkan.i: glfw-3.3.7/deps/glad_vulkan.c.i
+.PHONY : glfw-3.3.7/deps/glad_vulkan.i
+
+# target to preprocess a source file
+glfw-3.3.7/deps/glad_vulkan.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_vulkan.c.i
+.PHONY : glfw-3.3.7/deps/glad_vulkan.c.i
+
+glfw-3.3.7/deps/glad_vulkan.s: glfw-3.3.7/deps/glad_vulkan.c.s
+.PHONY : glfw-3.3.7/deps/glad_vulkan.s
+
+# target to generate assembly for a file
+glfw-3.3.7/deps/glad_vulkan.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_vulkan.c.s
+.PHONY : glfw-3.3.7/deps/glad_vulkan.c.s
+
+glfw-3.3.7/deps/tinycthread.o: glfw-3.3.7/deps/tinycthread.c.o
+.PHONY : glfw-3.3.7/deps/tinycthread.o
+
+# target to build an object file
+glfw-3.3.7/deps/tinycthread.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/tinycthread.c.o
+.PHONY : glfw-3.3.7/deps/tinycthread.c.o
+
+glfw-3.3.7/deps/tinycthread.i: glfw-3.3.7/deps/tinycthread.c.i
+.PHONY : glfw-3.3.7/deps/tinycthread.i
+
+# target to preprocess a source file
+glfw-3.3.7/deps/tinycthread.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/tinycthread.c.i
+.PHONY : glfw-3.3.7/deps/tinycthread.c.i
+
+glfw-3.3.7/deps/tinycthread.s: glfw-3.3.7/deps/tinycthread.c.s
+.PHONY : glfw-3.3.7/deps/tinycthread.s
+
+# target to generate assembly for a file
+glfw-3.3.7/deps/tinycthread.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/glfw-3.3.7/deps/tinycthread.c.s
+.PHONY : glfw-3.3.7/deps/tinycthread.c.s
+
+source/Bird.o: source/Bird.cpp.o
+.PHONY : source/Bird.o
+
+# target to build an object file
+source/Bird.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Bird.cpp.o
+.PHONY : source/Bird.cpp.o
+
+source/Bird.i: source/Bird.cpp.i
+.PHONY : source/Bird.i
+
+# target to preprocess a source file
+source/Bird.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Bird.cpp.i
+.PHONY : source/Bird.cpp.i
+
+source/Bird.s: source/Bird.cpp.s
+.PHONY : source/Bird.s
+
+# target to generate assembly for a file
+source/Bird.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Bird.cpp.s
+.PHONY : source/Bird.cpp.s
+
+source/Game.o: source/Game.cpp.o
+.PHONY : source/Game.o
+
+# target to build an object file
+source/Game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Game.cpp.o
+.PHONY : source/Game.cpp.o
+
+source/Game.i: source/Game.cpp.i
+.PHONY : source/Game.i
+
+# target to preprocess a source file
+source/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Game.cpp.i
+.PHONY : source/Game.cpp.i
+
+source/Game.s: source/Game.cpp.s
+.PHONY : source/Game.s
+
+# target to generate assembly for a file
+source/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Game.cpp.s
+.PHONY : source/Game.cpp.s
+
+source/main.o: source/main.cpp.o
+.PHONY : source/main.o
+
+# target to build an object file
+source/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/main.cpp.o
+.PHONY : source/main.cpp.o
+
+source/main.i: source/main.cpp.i
+.PHONY : source/main.i
+
+# target to preprocess a source file
+source/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/main.cpp.i
+.PHONY : source/main.cpp.i
+
+source/main.s: source/main.cpp.s
+.PHONY : source/main.s
+
+# target to generate assembly for a file
+source/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/main.cpp.s
+.PHONY : source/main.cpp.s
+
+source/path/path.o: source/path/path.cpp.o
+.PHONY : source/path/path.o
+
+# target to build an object file
+source/path/path.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/path/path.cpp.o
+.PHONY : source/path/path.cpp.o
+
+source/path/path.i: source/path/path.cpp.i
+.PHONY : source/path/path.i
+
+# target to preprocess a source file
+source/path/path.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/path/path.cpp.i
+.PHONY : source/path/path.cpp.i
+
+source/path/path.s: source/path/path.cpp.s
+.PHONY : source/path/path.s
+
+# target to generate assembly for a file
+source/path/path.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/path/path.cpp.s
+.PHONY : source/path/path.cpp.s
+
+source/utils/u8names.o: source/utils/u8names.cpp.o
+.PHONY : source/utils/u8names.o
+
+# target to build an object file
+source/utils/u8names.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.o
+.PHONY : source/utils/u8names.cpp.o
+
+source/utils/u8names.i: source/utils/u8names.cpp.i
+.PHONY : source/utils/u8names.i
+
+# target to preprocess a source file
+source/utils/u8names.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.i
+.PHONY : source/utils/u8names.cpp.i
+
+source/utils/u8names.s: source/utils/u8names.cpp.s
+.PHONY : source/utils/u8names.s
+
+# target to generate assembly for a file
+source/utils/u8names.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.s
+.PHONY : source/utils/u8names.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +368,34 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... update_mappings"
+	@echo "... glad"
+	@echo "... glfw"
+	@echo "... joust-remake"
+	@echo "... glfw-3.3.7/deps/glad_gl.o"
+	@echo "... glfw-3.3.7/deps/glad_gl.i"
+	@echo "... glfw-3.3.7/deps/glad_gl.s"
+	@echo "... glfw-3.3.7/deps/glad_vulkan.o"
+	@echo "... glfw-3.3.7/deps/glad_vulkan.i"
+	@echo "... glfw-3.3.7/deps/glad_vulkan.s"
+	@echo "... glfw-3.3.7/deps/tinycthread.o"
+	@echo "... glfw-3.3.7/deps/tinycthread.i"
+	@echo "... glfw-3.3.7/deps/tinycthread.s"
+	@echo "... source/Bird.o"
+	@echo "... source/Bird.i"
+	@echo "... source/Bird.s"
+	@echo "... source/Game.o"
+	@echo "... source/Game.i"
+	@echo "... source/Game.s"
+	@echo "... source/main.o"
+	@echo "... source/main.i"
+	@echo "... source/main.s"
+	@echo "... source/path/path.o"
+	@echo "... source/path/path.i"
+	@echo "... source/path/path.s"
+	@echo "... source/utils/u8names.o"
+	@echo "... source/utils/u8names.i"
+	@echo "... source/utils/u8names.s"
 .PHONY : help
 
 

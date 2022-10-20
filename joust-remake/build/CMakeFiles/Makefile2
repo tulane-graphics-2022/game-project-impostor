@@ -63,16 +63,156 @@ CMAKE_BINARY_DIR = /Users/maddiewisinski/Documents/GitHub/game-project-impostor/
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all:
+all: CMakeFiles/glad.dir/all
+all: CMakeFiles/joust-remake.dir/all
+all: glfw-3.3.7/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: glfw-3.3.7/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean:
+clean: CMakeFiles/glad.dir/clean
+clean: CMakeFiles/joust-remake.dir/clean
+clean: glfw-3.3.7/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory glfw-3.3.7
+
+# Recursive "all" directory target.
+glfw-3.3.7/all: glfw-3.3.7/src/all
+.PHONY : glfw-3.3.7/all
+
+# Recursive "preinstall" directory target.
+glfw-3.3.7/preinstall: glfw-3.3.7/src/preinstall
+.PHONY : glfw-3.3.7/preinstall
+
+# Recursive "clean" directory target.
+glfw-3.3.7/clean: glfw-3.3.7/src/clean
+.PHONY : glfw-3.3.7/clean
+
+#=============================================================================
+# Directory level rules for directory glfw-3.3.7/src
+
+# Recursive "all" directory target.
+glfw-3.3.7/src/all: glfw-3.3.7/src/CMakeFiles/glfw.dir/all
+.PHONY : glfw-3.3.7/src/all
+
+# Recursive "preinstall" directory target.
+glfw-3.3.7/src/preinstall:
+.PHONY : glfw-3.3.7/src/preinstall
+
+# Recursive "clean" directory target.
+glfw-3.3.7/src/clean: glfw-3.3.7/src/CMakeFiles/update_mappings.dir/clean
+glfw-3.3.7/src/clean: glfw-3.3.7/src/CMakeFiles/glfw.dir/clean
+.PHONY : glfw-3.3.7/src/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/glad.dir
+
+# All Build rule for target.
+CMakeFiles/glad.dir/all: glfw-3.3.7/src/CMakeFiles/glfw.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=1,2,3,4 "Built target glad"
+.PHONY : CMakeFiles/glad.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/glad.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 20
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/glad.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 0
+.PHONY : CMakeFiles/glad.dir/rule
+
+# Convenience name for target.
+glad: CMakeFiles/glad.dir/rule
+.PHONY : glad
+
+# clean rule for target.
+CMakeFiles/glad.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/clean
+.PHONY : CMakeFiles/glad.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/joust-remake.dir
+
+# All Build rule for target.
+CMakeFiles/joust-remake.dir/all: CMakeFiles/glad.dir/all
+CMakeFiles/joust-remake.dir/all: glfw-3.3.7/src/CMakeFiles/glfw.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=21,22,23,24,25,26 "Built target joust-remake"
+.PHONY : CMakeFiles/joust-remake.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/joust-remake.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 26
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/joust-remake.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 0
+.PHONY : CMakeFiles/joust-remake.dir/rule
+
+# Convenience name for target.
+joust-remake: CMakeFiles/joust-remake.dir/rule
+.PHONY : joust-remake
+
+# clean rule for target.
+CMakeFiles/joust-remake.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/clean
+.PHONY : CMakeFiles/joust-remake.dir/clean
+
+#=============================================================================
+# Target rules for target glfw-3.3.7/src/CMakeFiles/update_mappings.dir
+
+# All Build rule for target.
+glfw-3.3.7/src/CMakeFiles/update_mappings.dir/all:
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/update_mappings.dir/build.make glfw-3.3.7/src/CMakeFiles/update_mappings.dir/depend
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/update_mappings.dir/build.make glfw-3.3.7/src/CMakeFiles/update_mappings.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=27 "Built target update_mappings"
+.PHONY : glfw-3.3.7/src/CMakeFiles/update_mappings.dir/all
+
+# Build rule for subdir invocation for target.
+glfw-3.3.7/src/CMakeFiles/update_mappings.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw-3.3.7/src/CMakeFiles/update_mappings.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 0
+.PHONY : glfw-3.3.7/src/CMakeFiles/update_mappings.dir/rule
+
+# Convenience name for target.
+update_mappings: glfw-3.3.7/src/CMakeFiles/update_mappings.dir/rule
+.PHONY : update_mappings
+
+# clean rule for target.
+glfw-3.3.7/src/CMakeFiles/update_mappings.dir/clean:
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/update_mappings.dir/build.make glfw-3.3.7/src/CMakeFiles/update_mappings.dir/clean
+.PHONY : glfw-3.3.7/src/CMakeFiles/update_mappings.dir/clean
+
+#=============================================================================
+# Target rules for target glfw-3.3.7/src/CMakeFiles/glfw.dir
+
+# All Build rule for target.
+glfw-3.3.7/src/CMakeFiles/glfw.dir/all:
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/glfw.dir/build.make glfw-3.3.7/src/CMakeFiles/glfw.dir/depend
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/glfw.dir/build.make glfw-3.3.7/src/CMakeFiles/glfw.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target glfw"
+.PHONY : glfw-3.3.7/src/CMakeFiles/glfw.dir/all
+
+# Build rule for subdir invocation for target.
+glfw-3.3.7/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 16
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw-3.3.7/src/CMakeFiles/glfw.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles 0
+.PHONY : glfw-3.3.7/src/CMakeFiles/glfw.dir/rule
+
+# Convenience name for target.
+glfw: glfw-3.3.7/src/CMakeFiles/glfw.dir/rule
+.PHONY : glfw
+
+# clean rule for target.
+glfw-3.3.7/src/CMakeFiles/glfw.dir/clean:
+	$(MAKE) $(MAKESILENT) -f glfw-3.3.7/src/CMakeFiles/glfw.dir/build.make glfw-3.3.7/src/CMakeFiles/glfw.dir/clean
+.PHONY : glfw-3.3.7/src/CMakeFiles/glfw.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

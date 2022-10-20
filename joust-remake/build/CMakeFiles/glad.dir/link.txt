@@ -1,0 +1,2 @@
+/usr/bin/ar qc libglad.a "CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_gl.c.o" "CMakeFiles/glad.dir/glfw-3.3.7/deps/glad_vulkan.c.o" "CMakeFiles/glad.dir/glfw-3.3.7/deps/tinycthread.c.o"
+/usr/bin/ranlib libglad.a
