@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 project(JOUST-REMAKE)
 SET(CMAKE_BUILD_TYPE "Release")
@@ -32,6 +32,8 @@ add_executable(joust-remake WIN32 MACOSX_BUNDLE
     source/utils/mat.h
     source/utils/u8names.h
     source/utils/u8names.cpp
+    source/utils/lodepng.cpp
+	source/utils/lodepng.h
     source/path/path.cpp
 	source/main.cpp
     source/Bird.h

@@ -336,6 +336,30 @@ source/path/path.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/path/path.cpp.s
 .PHONY : source/path/path.cpp.s
 
+source/utils/lodepng.o: source/utils/lodepng.cpp.o
+.PHONY : source/utils/lodepng.o
+
+# target to build an object file
+source/utils/lodepng.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o
+.PHONY : source/utils/lodepng.cpp.o
+
+source/utils/lodepng.i: source/utils/lodepng.cpp.i
+.PHONY : source/utils/lodepng.i
+
+# target to preprocess a source file
+source/utils/lodepng.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.i
+.PHONY : source/utils/lodepng.cpp.i
+
+source/utils/lodepng.s: source/utils/lodepng.cpp.s
+.PHONY : source/utils/lodepng.s
+
+# target to generate assembly for a file
+source/utils/lodepng.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.s
+.PHONY : source/utils/lodepng.cpp.s
+
 source/utils/u8names.o: source/utils/u8names.cpp.o
 .PHONY : source/utils/u8names.o
 
@@ -393,6 +417,9 @@ help:
 	@echo "... source/path/path.o"
 	@echo "... source/path/path.i"
 	@echo "... source/path/path.s"
+	@echo "... source/utils/lodepng.o"
+	@echo "... source/utils/lodepng.i"
+	@echo "... source/utils/lodepng.s"
 	@echo "... source/utils/u8names.o"
 	@echo "... source/utils/u8names.i"
 	@echo "... source/utils/u8names.s"

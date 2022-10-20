@@ -97,10 +97,24 @@ CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/u8names.cpp -o CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.s
 
+CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o: CMakeFiles/joust-remake.dir/flags.make
+CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o: /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.cpp
+CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o: CMakeFiles/joust-remake.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o -MF CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o.d -o CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o -c /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.cpp
+
+CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.cpp > CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.i
+
+CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.cpp -o CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.s
+
 CMakeFiles/joust-remake.dir/source/path/path.cpp.o: CMakeFiles/joust-remake.dir/flags.make
 CMakeFiles/joust-remake.dir/source/path/path.cpp.o: /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/path/path.cpp
 CMakeFiles/joust-remake.dir/source/path/path.cpp.o: CMakeFiles/joust-remake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/joust-remake.dir/source/path/path.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/joust-remake.dir/source/path/path.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/joust-remake.dir/source/path/path.cpp.o -MF CMakeFiles/joust-remake.dir/source/path/path.cpp.o.d -o CMakeFiles/joust-remake.dir/source/path/path.cpp.o -c /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/path/path.cpp
 
 CMakeFiles/joust-remake.dir/source/path/path.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/joust-remake.dir/source/path/path.cpp.s: cmake_force
 CMakeFiles/joust-remake.dir/source/main.cpp.o: CMakeFiles/joust-remake.dir/flags.make
 CMakeFiles/joust-remake.dir/source/main.cpp.o: /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/main.cpp
 CMakeFiles/joust-remake.dir/source/main.cpp.o: CMakeFiles/joust-remake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/joust-remake.dir/source/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/joust-remake.dir/source/main.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/joust-remake.dir/source/main.cpp.o -MF CMakeFiles/joust-remake.dir/source/main.cpp.o.d -o CMakeFiles/joust-remake.dir/source/main.cpp.o -c /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/main.cpp
 
 CMakeFiles/joust-remake.dir/source/main.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/joust-remake.dir/source/main.cpp.s: cmake_force
 CMakeFiles/joust-remake.dir/source/Bird.cpp.o: CMakeFiles/joust-remake.dir/flags.make
 CMakeFiles/joust-remake.dir/source/Bird.cpp.o: /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.cpp
 CMakeFiles/joust-remake.dir/source/Bird.cpp.o: CMakeFiles/joust-remake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/joust-remake.dir/source/Bird.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/joust-remake.dir/source/Bird.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/joust-remake.dir/source/Bird.cpp.o -MF CMakeFiles/joust-remake.dir/source/Bird.cpp.o.d -o CMakeFiles/joust-remake.dir/source/Bird.cpp.o -c /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.cpp
 
 CMakeFiles/joust-remake.dir/source/Bird.cpp.i: cmake_force
@@ -143,6 +157,7 @@ CMakeFiles/joust-remake.dir/source/Bird.cpp.s: cmake_force
 joust__remake_OBJECTS = \
 "CMakeFiles/joust-remake.dir/source/Game.cpp.o" \
 "CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.o" \
+"CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o" \
 "CMakeFiles/joust-remake.dir/source/path/path.cpp.o" \
 "CMakeFiles/joust-remake.dir/source/main.cpp.o" \
 "CMakeFiles/joust-remake.dir/source/Bird.cpp.o"
@@ -152,6 +167,7 @@ joust__remake_EXTERNAL_OBJECTS =
 
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/Game.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/utils/u8names.cpp.o
+joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/path/path.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/main.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/Bird.cpp.o
@@ -160,7 +176,7 @@ joust-remake.app/Contents/MacOS/joust-remake: glfw-3.3.7/src/libglfw3.a
 joust-remake.app/Contents/MacOS/joust-remake: libglad.a
 joust-remake.app/Contents/MacOS/joust-remake: glfw-3.3.7/src/libglfw3.a
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable joust-remake.app/Contents/MacOS/joust-remake"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable joust-remake.app/Contents/MacOS/joust-remake"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/joust-remake.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
