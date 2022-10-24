@@ -10,6 +10,23 @@ static void error_callback(int error, const char* description)
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
+  // p1
+   // press
+  if (key == GLFW_KEY_W && (action == GLFW_PRESS || action == GLFW_REPEAT))
+    game->p1->fly();
+  if (key == GLFW_KEY_A && (action == GLFW_PRESS || action == GLFW_REPEAT))
+    game->p1->turnLeft();
+  if (key == GLFW_KEY_D && (action == GLFW_PRESS || action == GLFW_REPEAT))
+    game->p1->turnRight();
+  if (key == GLFW_KEY_S && (action == GLFW_PRESS || action == GLFW_REPEAT))
+    game->p1->drop();
+  // release
+  if (key == GLFW_KEY_W && action == GLFW_RELEASE)
+    game->p1->drop();
+  // TODO: more keys and functions, need to sketch out functions better
+  
+  if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
+    game->p2->turnLeft();
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, GLFW_TRUE);
   if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT))

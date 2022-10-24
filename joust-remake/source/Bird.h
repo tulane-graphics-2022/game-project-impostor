@@ -14,9 +14,12 @@ class Bird {
     vec2 bird_bbox[2];
     std::vector <vec2> bird_vert;
     std::vector <vec2> bird_uv;
+  
+    std::vector < vec2 > outline;
 
     std::vector<unsigned char> bird_im;
-    unsigned im_width, im_height;
+    unsigned bird_im_width, bird_im_height;
+
     struct {
         
         vec2 velocity;
@@ -25,6 +28,8 @@ class Bird {
         bool direction; // left=True, right=False
         bool isFlying;
         bool isFalling;
+        bool isMoving;
+        bool isSquatting;
     } state;
 
     struct {
@@ -55,6 +60,16 @@ class Bird {
         void initBuffers();
         void initTexture();
 
+        inline void fly() {
+            state.isFlying = true;
+        }
+        inline void drop() {
+            state.isFlying = false;
+            state.isFalling = true;
+            // if surface is below, then SQUAT
+            
+        }
+
         inline void moving() {
             if (state.direction) {
                 state.velocity.x -= accel;
@@ -62,8 +77,8 @@ class Bird {
                 state.velocity.x += accel;
             }
         }
-        inline void turnLeft() { state.direction = true; }
-        inline void turnRight() { state.direction = false; }
+        inline void turnLeft() { state.direction = true; state.isMoving = true; }
+        inline void turnRight() { state.direction = false; state.isMoving = true;}
         
 
 };

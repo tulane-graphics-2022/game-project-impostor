@@ -16,11 +16,13 @@ Bird::Bird(){
     bird_bbox[0] = vec2(-0.15, -0.15);
     bird_bbox[1] = vec2(0.15,   0.15);
     
+    bird_vert.resize(4);
+    bird_uv.resize(4);
 
-    bird_vert.push_back(vec2(-0.15, -0.15)); bird_uv.push_back(vec2(0.0,0.0));
-    bird_vert.push_back(vec2(-0.15,  0.15)); bird_uv.push_back(vec2(0.0,1.0));
-    bird_vert.push_back(vec2(0.15,  -0.15)); bird_uv.push_back(vec2(1.0,0.0));
-    bird_vert.push_back(vec2(0.15,   0.15)); bird_uv.push_back(vec2(1.0,1.0));
+    bird_vert[0] = (vec2(-0.15, -0.15)); bird_uv[0] = (vec2(0.0,0.0));
+    bird_vert[1] = (vec2(-0.15,  0.15)); bird_uv[1] = (vec2(0.0,1.0));
+    bird_vert[2] = (vec2(0.15,  -0.15)); bird_uv[2] = (vec2(1.0,0.0));
+    bird_vert[3] = (vec2(0.15,   0.15)); bird_uv[3] = (vec2(1.0,1.0));
     // below is bird stuff (literally the bird)
     // if(index == 1){
     //     std::string file_location = source_path + "sprites/asteroid_1.png";
@@ -31,6 +33,9 @@ Bird::Bird(){
     //     unsigned error = lodepng::decode(asteroid_im, im_width, im_height, file_location.c_str());
     // }
     // std::cout << im_width << " X " << im_height << " image loaded\n";
+    std::string file_location = source_path + "sprites/test_bird.png";
+    unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
+    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
   
 };
 
@@ -94,7 +99,7 @@ void Bird::gl_init() {
     glGenTextures( 1, &GLvars.bird_texture );
 
     glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture );
-    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, im_width, im_height,
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, bird_im_width, bird_im_height,
                 0, GL_RGBA, GL_UNSIGNED_BYTE, &bird_im[0]);
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
