@@ -79,8 +79,8 @@ public:
   }
   
   void update(){
-    p1->update(vec4(0,0,0,0));
-    p2->update(vec4(0,0,0,0));
+    p1->update(screen_extents);
+    p2->update(screen_extents);
     
     //if (!game_over)
       game_over = testIntersections();

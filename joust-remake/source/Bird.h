@@ -9,7 +9,8 @@ using namespace tcg;
 class Bird {
 
     friend class Game;
-
+    float g;
+    float max_vel;
     float accel;
     vec2 bird_bbox[2];
     std::vector <vec2> bird_vert;
@@ -72,13 +73,14 @@ class Bird {
 
         inline void moving() {
             if (state.direction) {
-                state.velocity.x -= accel;
+                state.velocity.x = abs(state.velocity.x - accel) <= max_vel ? state.velocity.x - accel : -max_vel; 
             } else {
-                state.velocity.x += accel;
+                state.velocity.x = abs(state.velocity.x + accel) <= max_vel ? state.velocity.x + accel : max_vel;
             }
         }
         inline void turnLeft() { state.direction = true; state.isMoving = true; }
         inline void turnRight() { state.direction = false; state.isMoving = true;}
+        inline void stop() { state.isMoving = false; }
         
 
 };

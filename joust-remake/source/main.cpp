@@ -23,6 +23,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
   // release
   if (key == GLFW_KEY_W && action == GLFW_RELEASE)
     game->p1->drop();
+  if (key == GLFW_KEY_A && action == GLFW_RELEASE)
+    game->p1->stop();
+  if (key == GLFW_KEY_D && action == GLFW_RELEASE)
+    game->p1->stop();
   // TODO: more keys and functions, need to sketch out functions better
   
   if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)

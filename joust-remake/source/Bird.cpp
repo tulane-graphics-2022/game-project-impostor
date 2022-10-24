@@ -11,8 +11,11 @@ Bird::Bird(){
     
     
     // add vertices to create the shape of the bird
-
-    accel = 0.1;
+    state.isMoving = false;
+    state.velocity = vec2(0.0f, 0.0f);
+    g = 9.81; // 9.81 m/s^2
+    accel = 0.01;
+    max_vel = 0.1;
     bird_bbox[0] = vec2(-0.15, -0.15);
     bird_bbox[1] = vec2(0.15,   0.15);
     
@@ -48,7 +51,27 @@ bool Bird::isAbove(Bird b) {
 
 void Bird::update(vec4 extents) {
     // update velocity
-    
+    if (state.isMoving) {
+        moving();
+    } else {
+        if (state.direction) {
+            state.velocity.x = state.velocity.x + accel <= 0 ? state.velocity.x + accel : 0;
+        } else {
+            state.velocity.x = state.velocity.x - accel >= 0 ? state.velocity.x - accel : 0;
+        }
+    }
+    state.position.x = state.position.x + state.velocity.x;
+
+    // update position
+    // if (state.position.x < extents[0])
+    //     state.position.x = extents[1];
+    state.position.x = state.position.x < extents[0] ? extents[1] : state.position.x;
+    state.position.x = state.position.x > extents[1] ? extents[0] : state.position.x;
+    state.position.y = state.position.y < extents[2] ? extents[2] : state.position.y;
+    state.position.y = state.position.y > extents[3] ? extents[3] : state.position.y;
+
+
+
     // check isFalling, isFlying, direction
     // check for collision with enemy -> if !b1.isAbove(b2) -> dead
     // update position based on velocity and direction
