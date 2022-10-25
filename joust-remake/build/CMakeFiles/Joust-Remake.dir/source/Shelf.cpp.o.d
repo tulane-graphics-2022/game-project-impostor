@@ -1,5 +1,5 @@
-CMakeFiles/joust-remake.dir/source/Bird.cpp.o: \
-  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.cpp \
+CMakeFiles/joust-remake.dir/source/Shelf.cpp.o: \
+  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.cpp \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Game.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/deps/glad/gl.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/deps/glad/khrplatform.h \
@@ -429,4 +429,5 @@ CMakeFiles/joust-remake.dir/source/Bird.cpp.o: \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/mat.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/loadTexture.h \
-  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.h
+  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.h \
+  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.h

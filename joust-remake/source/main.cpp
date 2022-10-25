@@ -29,14 +29,24 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     game->p1->stop();
   // TODO: more keys and functions, need to sketch out functions better
   
-  if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
-    game->p2->turnLeft();
-  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, GLFW_TRUE);
+  // p2
+    // press
+  if (key == GLFW_KEY_UP && (action == GLFW_PRESS || action == GLFW_REPEAT))
+    game->p2->fly();
   if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT))
     game->p2->turnLeft();
   if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT))
     game->p2->turnRight();
+  if (key == GLFW_KEY_DOWN && (action == GLFW_PRESS || action == GLFW_REPEAT))
+    game->p2->drop();
+  // release
+  if (key == GLFW_KEY_UP && action == GLFW_RELEASE)
+    game->p2->drop();
+  if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
+    game->p2->stop();
+  if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
+    game->p2->stop();
+  
 }
 
 void init(){

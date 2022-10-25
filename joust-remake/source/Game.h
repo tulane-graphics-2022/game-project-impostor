@@ -25,12 +25,15 @@
 #include <utils/loadTexture.h>
 
 #include "Bird.h"
+#include "Shelf.h"
 
 class Game{
 
 public:
   Bird *p1;
   Bird *p2;
+  Shelf *shelf1;
+  Shelf *shelf2;
   //  std::vector <Platform *> platforms;
 
 
@@ -66,13 +69,17 @@ public:
   void init(){
     p1->gl_init();
     p2->gl_init();
+    shelf1->gl_init();
+    shelf2->gl_init();
     gl_init();
   }
   
   void draw(mat4 proj){
     p1->draw(proj);
     p2->draw(proj);
-    
+    shelf1->draw(proj);
+    shelf2->draw(proj);
+
     if(game_over){
       draw_game_over(proj);
     }

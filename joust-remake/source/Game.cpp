@@ -57,6 +57,8 @@ bool Game::testIntersections()
 Game::Game(){
   p1 = new Bird();
   p2 = new Bird();
+  shelf1 = new Shelf(vec2(-1, 0.5));
+  shelf2 = new Shelf(vec2(1,0.5));
   game_over = false;
   
   std::string file_location = source_path + "sprites/game_over.png";

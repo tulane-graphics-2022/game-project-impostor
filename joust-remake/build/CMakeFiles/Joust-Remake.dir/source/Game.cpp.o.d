@@ -429,4 +429,5 @@ CMakeFiles/joust-remake.dir/source/Game.cpp.o: \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/mat.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/loadTexture.h \
-  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.h
+  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.h \
+  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.h
