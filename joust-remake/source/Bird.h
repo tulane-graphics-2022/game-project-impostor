@@ -33,6 +33,7 @@ class Bird {
         bool isMoving;
         bool isSquatting;
         bool onSurface;
+        int jumps;
     } state;
 
     struct {
@@ -65,9 +66,18 @@ class Bird {
         void initTexture();
 
         inline void fly() {
-            state.velocity.y = 0.025;
-            state.position.y +=0.025;
+            if (state.jumps == 2) {
+                state.jumps--;
+                state.velocity.y = 0.04;
+                state.position.y +=0.03;
+            } else if (state.jumps == 1) {
+                state.jumps--;
+                state.velocity.y = 0.04;
+                state.position.y += 0.04;
+            }
+           
         }
+        inline void resetJumps() {state.jumps = 2;}
         inline void drop() {
             state.isFlying = false;
             state.isFalling = true;

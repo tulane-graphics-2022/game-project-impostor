@@ -58,6 +58,10 @@ bool Bird::isAbove(Bird b) {
     return false;
 }
 void Bird::fall() {
+    if (!state.isFalling) {
+        state.isFalling = true;
+        resetJumps();
+    }
     if (state.velocity.y > -MAX_FALL_SPEED) {
         state.velocity.y -= G;
     }
@@ -95,8 +99,10 @@ void Bird::update(vec4 extents) {
     state.position.x = state.position.x + bird_bbox[1].x < extents[0] ? extents[1] : state.position.x;
     state.position.x = state.position.x + bird_bbox[0].x > extents[1] ? extents[0] : state.position.x;
     state.position.y = state.position.y - bird_bbox[1].y < extents[2] ? extents[2] + bird_bbox[1].y : state.position.y;
-    if (state.position.y == extents[2] + bird_bbox[1].y)
+    if (state.position.y == extents[2] + bird_bbox[1].y) {
         state.velocity.y = 0;
+        resetJumps();
+    }
     state.position.y = state.position.y > extents[3] ? extents[3] : state.position.y;
 
 

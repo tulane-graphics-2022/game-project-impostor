@@ -20,7 +20,7 @@ void Game::testIntersections(Bird *b)
   for (int i = 0; i < platforms.size(); i++) {
     if (((bird_bbox[0].x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[0].x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
         || bird_bbox[1].x  >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[1].x  <= platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x)
-        && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE*2 &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y+TOLERANCE))) {
+        && (b->state.velocity.y <= 0) && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE*3 &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y))) {
       b->state.velocity.y = 0;
       b->state.position.y =  platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y - b->bird_bbox[1].y;
       onSurface = true;
@@ -29,6 +29,9 @@ void Game::testIntersections(Bird *b)
   }
 }
   b->state.onSurface = onSurface;
+  b->state.isFalling = !onSurface;
+  if (onSurface)
+    b->resetJumps();
 }
 
 Game::Game(){
@@ -37,6 +40,8 @@ Game::Game(){
   platforms.push_back(new Platform(vec2(-1,0.5)));
   platforms.push_back(new Platform(vec2(1, 0.5)));
   platforms.push_back(new Platform(vec2(0,0)));
+  platforms.push_back(new Platform(vec2(-0.5, -0.5)));
+  platforms.push_back(new Platform(vec2(0.5, -0.5)));
   game_over = false;
   
   std::string file_location = source_path + "sprites/game_over.png";
