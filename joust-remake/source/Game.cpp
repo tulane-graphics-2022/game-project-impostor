@@ -12,6 +12,7 @@
 
 void Game::testIntersections(Bird *b)
 {
+  bool onSurface = false;
   tcg::vec2 bird_bbox[2];
   for (int i = 0; i < 2; i++) {
     bird_bbox[i] = b->bird_bbox[i] + b->state.position;
@@ -19,14 +20,15 @@ void Game::testIntersections(Bird *b)
   for (int i = 0; i < platforms.size(); i++) {
     if (((bird_bbox[0].x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[0].x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
         || bird_bbox[1].x  >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[1].x  <= platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x)
-        && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y+TOLERANCE))) {
+        && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE*2 &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y+TOLERANCE))) {
       b->state.velocity.y = 0;
       b->state.position.y =  platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y - b->bird_bbox[1].y;
-    
+      onSurface = true;
   } else {
     b->fall();
   }
 }
+  b->state.onSurface = onSurface;
 }
 
 Game::Game(){

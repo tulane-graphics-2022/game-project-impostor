@@ -32,6 +32,7 @@ class Bird {
         bool isFalling;
         bool isMoving;
         bool isSquatting;
+        bool onSurface;
     } state;
 
     struct {
@@ -71,8 +72,16 @@ class Bird {
             state.isFlying = false;
             state.isFalling = true;
             // if surface is below, then SQUAT
-            
+            if (state.onSurface) {
+                state.position.y-=0.06;
+                state.velocity.y=-0.003;
+            } else {
+                state.isSquatting = true;
+            }
         }
+        inline void undrop() {
+            state.isSquatting = false;
+        }   
         inline void turnLeft() { state.direction = true; state.isMoving = true; }
         inline void turnRight() { state.direction = false; state.isMoving = true;}
         inline void stop() { state.isMoving = false; }

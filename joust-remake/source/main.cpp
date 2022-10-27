@@ -22,7 +22,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     game->p1->drop();
   // release
   if (key == GLFW_KEY_W && action == GLFW_RELEASE)
-    game->p1->drop();
+    game->p1->undrop();
   if (key == GLFW_KEY_A && action == GLFW_RELEASE)
     game->p1->stop();
   if (key == GLFW_KEY_D && action == GLFW_RELEASE)
@@ -41,7 +41,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     game->p2->drop();
   // release
   if (key == GLFW_KEY_UP && action == GLFW_RELEASE)
-    game->p2->drop();
+    game->p2->undrop();
   if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
     game->p2->stop();
   if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
