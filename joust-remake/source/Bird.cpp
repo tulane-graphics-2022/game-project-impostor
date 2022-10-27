@@ -18,13 +18,23 @@ Bird::Bird(){
     bird_bbox[0] = vec2(-BORDER, -BORDER);
     bird_bbox[1] = vec2(BORDER,   BORDER);
     
-    bird_vert.resize(4);
-    bird_uv.resize(4);
+    bird_vert.resize(8);
+    bird_uv.resize(8);
 
-    bird_vert[1] = (vec2(-BORDER, -BORDER)); bird_uv[0] = (vec2(0.0,0.0));
+    // facing left
     bird_vert[0] = (vec2(-BORDER,  BORDER)); bird_uv[1] = (vec2(0.0,1.0));
-    bird_vert[3] = (vec2(BORDER,  -BORDER)); bird_uv[2] = (vec2(1.0,0.0));
+    bird_vert[1] = (vec2(-BORDER, -BORDER)); bird_uv[0] = (vec2(0.0,0.0));
     bird_vert[2] = (vec2(BORDER,   BORDER)); bird_uv[3] = (vec2(1.0,1.0));
+    bird_vert[3] = (vec2(BORDER,  -BORDER)); bird_uv[2] = (vec2(1.0,0.0));
+    
+    // facing right
+    bird_vert[7] = (vec2(BORDER,  -BORDER)); bird_uv[4] = (vec2(1.0,0.0));
+    bird_vert[4] = (vec2(-BORDER,  BORDER)); bird_uv[7] = (vec2(0.0,1.0));
+    bird_vert[5] = (vec2(-BORDER, -BORDER)); bird_uv[6] = (vec2(0.0,0.0));
+    bird_vert[6] = (vec2(BORDER,   BORDER)); bird_uv[5] = (vec2(1.0,1.0));
+    
+    
+    
     // below is bird stuff (literally the bird)
     // if(index == 1){
     //     std::string file_location = source_path + "sprites/asteroid_1.png";
@@ -64,10 +74,16 @@ void Bird::update(vec4 extents) {
                 state.velocity.x = abs(state.velocity.x + ACC) <= MAX_SPEED ? state.velocity.x + ACC : MAX_SPEED;
             }
     } else {
-        if (state.direction && state.velocity.x != 0) {
-            state.velocity.x = state.velocity.x + DAMPING <= 0 ? state.velocity.x + DAMPING : 0;
+        if (state.direction) { // facing left
+            if (state.velocity.x > 0)
+                state.velocity.x = state.velocity.x - DAMPING >= 0 ? state.velocity.x - DAMPING : 0;
+            else
+                state.velocity.x = state.velocity.x + DAMPING <= 0 ? state.velocity.x + DAMPING : 0;
         } else {
-            state.velocity.x = state.velocity.x - DAMPING >= 0 ? state.velocity.x - DAMPING : 0;
+            if (state.velocity.x <0)
+                state.velocity.x = state.velocity.x + DAMPING <= 0 ? state.velocity.x + DAMPING : 0;
+            else
+                state.velocity.x = state.velocity.x - DAMPING >= 0 ? state.velocity.x - DAMPING : 0;
         }
     }
     state.position.y = state.position.y + state.velocity.y;
@@ -76,8 +92,8 @@ void Bird::update(vec4 extents) {
     // update position
     // if (state.position.x < extents[0])
     //     state.position.x = extents[1];
-    state.position.x = state.position.x < extents[0] ? extents[1] : state.position.x;
-    state.position.x = state.position.x > extents[1] ? extents[0] : state.position.x;
+    state.position.x = state.position.x + bird_bbox[1].x < extents[0] ? extents[1] : state.position.x;
+    state.position.x = state.position.x + bird_bbox[0].x > extents[1] ? extents[0] : state.position.x;
     state.position.y = state.position.y - bird_bbox[1].y < extents[2] ? extents[2] + bird_bbox[1].y : state.position.y;
     if (state.position.y == extents[2] + bird_bbox[1].y)
         state.velocity.y = 0;
@@ -189,8 +205,10 @@ void Bird::draw(mat4 Projection){
   glLineWidth(1.2);
   
   glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture );
-  glDrawArrays( GL_TRIANGLE_STRIP, 0, bird_vert.size() );
-  
+  if (state.direction)
+    glDrawArrays( GL_TRIANGLE_STRIP, 0, 4);
+  else
+    glDrawArrays( GL_TRIANGLE_STRIP, 4, bird_vert.size());
   
   glBindVertexArray(0);
   glUseProgram(0);

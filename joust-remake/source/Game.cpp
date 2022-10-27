@@ -17,7 +17,7 @@ void Game::testIntersections(Bird *b)
     bird_bbox[i] = b->bird_bbox[i] + b->state.position;
   }
   for (int i = 0; i < platforms.size(); i++) {
-    if (((b->state.position.x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && b->state.position.x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
+    if (((bird_bbox[0].x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[0].x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
         || bird_bbox[1].x  >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[1].x  <= platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x)
         && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y+TOLERANCE))) {
       b->state.velocity.y = 0;
