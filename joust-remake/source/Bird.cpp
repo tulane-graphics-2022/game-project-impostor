@@ -2,9 +2,9 @@
 #include "Bird.h"
 
 #define MAX_SPEED 0.05f
-#define DAMPING 0.98f
-#define ACC 0.008f
-#define G 0.0009f
+#define DAMPING 0.009f
+#define ACC 0.006f
+#define G 0.0007f
 #define MAX_FALL_SPEED 0.1f
 #define BORDER 0.075f
 Bird::Bird(){
@@ -64,7 +64,7 @@ void Bird::update(vec4 extents) {
                 state.velocity.x = abs(state.velocity.x + ACC) <= MAX_SPEED ? state.velocity.x + ACC : MAX_SPEED;
             }
     } else {
-        if (state.direction) {
+        if (state.direction && state.velocity.x != 0) {
             state.velocity.x = state.velocity.x + DAMPING <= 0 ? state.velocity.x + DAMPING : 0;
         } else {
             state.velocity.x = state.velocity.x - DAMPING >= 0 ? state.velocity.x - DAMPING : 0;

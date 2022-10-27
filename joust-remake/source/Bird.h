@@ -64,8 +64,8 @@ class Bird {
         void initTexture();
 
         inline void fly() {
-            state.velocity.y = 0.03;
-            state.position.y +=0.03;
+            state.velocity.y = 0.025;
+            state.position.y +=0.025;
         }
         inline void drop() {
             state.isFlying = false;

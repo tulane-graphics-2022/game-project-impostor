@@ -34,6 +34,7 @@ Game::Game(){
   p2 = new Bird();
   platforms.push_back(new Platform(vec2(-1,0.5)));
   platforms.push_back(new Platform(vec2(1, 0.5)));
+  platforms.push_back(new Platform(vec2(0,0)));
   game_over = false;
   
   std::string file_location = source_path + "sprites/game_over.png";
