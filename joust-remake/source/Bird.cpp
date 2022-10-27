@@ -58,10 +58,10 @@ bool Bird::isAbove(Bird b) {
     return false;
 }
 void Bird::fall() {
-    if (!state.isFalling) {
-        state.isFalling = true;
-        resetJumps();
-    }
+    // if (!state.isFalling) {
+    //     state.isFalling = true;
+    //     resetJumps();
+    // }
     if (state.velocity.y > -MAX_FALL_SPEED) {
         state.velocity.y -= G;
     }
