@@ -153,19 +153,19 @@ CMakeFiles/joust-remake.dir/source/Bird.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/joust-remake.dir/source/Bird.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.cpp -o CMakeFiles/joust-remake.dir/source/Bird.cpp.s
 
-CMakeFiles/joust-remake.dir/source/Shelf.cpp.o: CMakeFiles/joust-remake.dir/flags.make
-CMakeFiles/joust-remake.dir/source/Shelf.cpp.o: /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.cpp
-CMakeFiles/joust-remake.dir/source/Shelf.cpp.o: CMakeFiles/joust-remake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/joust-remake.dir/source/Shelf.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/joust-remake.dir/source/Shelf.cpp.o -MF CMakeFiles/joust-remake.dir/source/Shelf.cpp.o.d -o CMakeFiles/joust-remake.dir/source/Shelf.cpp.o -c /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.cpp
+CMakeFiles/joust-remake.dir/source/Platform.cpp.o: CMakeFiles/joust-remake.dir/flags.make
+CMakeFiles/joust-remake.dir/source/Platform.cpp.o: /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Platform.cpp
+CMakeFiles/joust-remake.dir/source/Platform.cpp.o: CMakeFiles/joust-remake.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/joust-remake.dir/source/Platform.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/joust-remake.dir/source/Platform.cpp.o -MF CMakeFiles/joust-remake.dir/source/Platform.cpp.o.d -o CMakeFiles/joust-remake.dir/source/Platform.cpp.o -c /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Platform.cpp
 
-CMakeFiles/joust-remake.dir/source/Shelf.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/joust-remake.dir/source/Shelf.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.cpp > CMakeFiles/joust-remake.dir/source/Shelf.cpp.i
+CMakeFiles/joust-remake.dir/source/Platform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/joust-remake.dir/source/Platform.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Platform.cpp > CMakeFiles/joust-remake.dir/source/Platform.cpp.i
 
-CMakeFiles/joust-remake.dir/source/Shelf.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/joust-remake.dir/source/Shelf.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.cpp -o CMakeFiles/joust-remake.dir/source/Shelf.cpp.s
+CMakeFiles/joust-remake.dir/source/Platform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/joust-remake.dir/source/Platform.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Platform.cpp -o CMakeFiles/joust-remake.dir/source/Platform.cpp.s
 
 # Object files for target joust-remake
 joust__remake_OBJECTS = \
@@ -175,7 +175,7 @@ joust__remake_OBJECTS = \
 "CMakeFiles/joust-remake.dir/source/path/path.cpp.o" \
 "CMakeFiles/joust-remake.dir/source/main.cpp.o" \
 "CMakeFiles/joust-remake.dir/source/Bird.cpp.o" \
-"CMakeFiles/joust-remake.dir/source/Shelf.cpp.o"
+"CMakeFiles/joust-remake.dir/source/Platform.cpp.o"
 
 # External object files for target joust-remake
 joust__remake_EXTERNAL_OBJECTS =
@@ -186,7 +186,7 @@ joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/path/path.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/main.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/Bird.cpp.o
-joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/Shelf.cpp.o
+joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/source/Platform.cpp.o
 joust-remake.app/Contents/MacOS/joust-remake: CMakeFiles/joust-remake.dir/build.make
 joust-remake.app/Contents/MacOS/joust-remake: glfw-3.3.7/src/libglfw3.a
 joust-remake.app/Contents/MacOS/joust-remake: libglad.a

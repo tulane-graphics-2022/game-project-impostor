@@ -12,6 +12,7 @@ class Bird {
     float g;
     float max_vel;
     float accel;
+    float damping;
     vec2 bird_bbox[2];
     std::vector <vec2> bird_vert;
     std::vector <vec2> bird_uv;
@@ -55,6 +56,7 @@ class Bird {
         void update(vec4 extents);
         void reset();
         bool isAbove(Bird b);
+        void fall();
 
         void gl_init();
         void initShaders();
@@ -62,21 +64,14 @@ class Bird {
         void initTexture();
 
         inline void fly() {
-            state.isFlying = true;
+            state.velocity.y = 0.03;
+            state.position.y +=0.03;
         }
         inline void drop() {
             state.isFlying = false;
             state.isFalling = true;
             // if surface is below, then SQUAT
             
-        }
-
-        inline void moving() {
-            if (state.direction) {
-                state.velocity.x = abs(state.velocity.x - accel) <= max_vel ? state.velocity.x - accel : -max_vel; 
-            } else {
-                state.velocity.x = abs(state.velocity.x + accel) <= max_vel ? state.velocity.x + accel : max_vel;
-            }
         }
         inline void turnLeft() { state.direction = true; state.isMoving = true; }
         inline void turnRight() { state.direction = false; state.isMoving = true;}

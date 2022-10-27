@@ -288,29 +288,29 @@ source/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Game.cpp.s
 .PHONY : source/Game.cpp.s
 
-source/Shelf.o: source/Shelf.cpp.o
-.PHONY : source/Shelf.o
+source/Platform.o: source/Platform.cpp.o
+.PHONY : source/Platform.o
 
 # target to build an object file
-source/Shelf.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Shelf.cpp.o
-.PHONY : source/Shelf.cpp.o
+source/Platform.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Platform.cpp.o
+.PHONY : source/Platform.cpp.o
 
-source/Shelf.i: source/Shelf.cpp.i
-.PHONY : source/Shelf.i
+source/Platform.i: source/Platform.cpp.i
+.PHONY : source/Platform.i
 
 # target to preprocess a source file
-source/Shelf.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Shelf.cpp.i
-.PHONY : source/Shelf.cpp.i
+source/Platform.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Platform.cpp.i
+.PHONY : source/Platform.cpp.i
 
-source/Shelf.s: source/Shelf.cpp.s
-.PHONY : source/Shelf.s
+source/Platform.s: source/Platform.cpp.s
+.PHONY : source/Platform.s
 
 # target to generate assembly for a file
-source/Shelf.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Shelf.cpp.s
-.PHONY : source/Shelf.cpp.s
+source/Platform.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/source/Platform.cpp.s
+.PHONY : source/Platform.cpp.s
 
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
@@ -435,9 +435,9 @@ help:
 	@echo "... source/Game.o"
 	@echo "... source/Game.i"
 	@echo "... source/Game.s"
-	@echo "... source/Shelf.o"
-	@echo "... source/Shelf.i"
-	@echo "... source/Shelf.s"
+	@echo "... source/Platform.o"
+	@echo "... source/Platform.i"
+	@echo "... source/Platform.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

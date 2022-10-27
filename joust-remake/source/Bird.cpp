@@ -1,10 +1,12 @@
 #include "Game.h"
 #include "Bird.h"
 
-// #define _MAX_SPEED 0.05f
-// #define _DAMPING 0.98f
-// #define _ACC 0.008f
-
+#define MAX_SPEED 0.05f
+#define DAMPING 0.98f
+#define ACC 0.008f
+#define G 0.0009f
+#define MAX_FALL_SPEED 0.1f
+#define BORDER 0.075f
 Bird::Bird(){
 
     // instantiate position, velocity, etc
@@ -13,19 +15,16 @@ Bird::Bird(){
     // add vertices to create the shape of the bird
     state.isMoving = false;
     state.velocity = vec2(0.0f, 0.0f);
-    g = 9.81; // 9.81 m/s^2
-    accel = 0.01;
-    max_vel = 0.1;
-    bird_bbox[0] = vec2(-0.15, -0.15);
-    bird_bbox[1] = vec2(0.15,   0.15);
+    bird_bbox[0] = vec2(-BORDER, -BORDER);
+    bird_bbox[1] = vec2(BORDER,   BORDER);
     
     bird_vert.resize(4);
     bird_uv.resize(4);
 
-    bird_vert[0] = (vec2(-0.15, -0.15)); bird_uv[0] = (vec2(0.0,0.0));
-    bird_vert[1] = (vec2(-0.15,  0.15)); bird_uv[1] = (vec2(0.0,1.0));
-    bird_vert[2] = (vec2(0.15,  -0.15)); bird_uv[2] = (vec2(1.0,0.0));
-    bird_vert[3] = (vec2(0.15,   0.15)); bird_uv[3] = (vec2(1.0,1.0));
+    bird_vert[1] = (vec2(-BORDER, -BORDER)); bird_uv[0] = (vec2(0.0,0.0));
+    bird_vert[0] = (vec2(-BORDER,  BORDER)); bird_uv[1] = (vec2(0.0,1.0));
+    bird_vert[3] = (vec2(BORDER,  -BORDER)); bird_uv[2] = (vec2(1.0,0.0));
+    bird_vert[2] = (vec2(BORDER,   BORDER)); bird_uv[3] = (vec2(1.0,1.0));
     // below is bird stuff (literally the bird)
     // if(index == 1){
     //     std::string file_location = source_path + "sprites/asteroid_1.png";
@@ -48,18 +47,30 @@ bool Bird::isAbove(Bird b) {
     }
     return false;
 }
-
+void Bird::fall() {
+    if (state.velocity.y > -MAX_FALL_SPEED) {
+        state.velocity.y -= G;
+    }
+}
 void Bird::update(vec4 extents) {
+
+
     // update velocity
+
     if (state.isMoving) {
-        moving();
+        if (state.direction) {
+                state.velocity.x = abs(state.velocity.x - ACC) <= MAX_SPEED ? state.velocity.x - ACC : -MAX_SPEED; 
+            } else {
+                state.velocity.x = abs(state.velocity.x + ACC) <= MAX_SPEED ? state.velocity.x + ACC : MAX_SPEED;
+            }
     } else {
         if (state.direction) {
-            state.velocity.x = state.velocity.x + accel <= 0 ? state.velocity.x + accel : 0;
+            state.velocity.x = state.velocity.x + DAMPING <= 0 ? state.velocity.x + DAMPING : 0;
         } else {
-            state.velocity.x = state.velocity.x - accel >= 0 ? state.velocity.x - accel : 0;
+            state.velocity.x = state.velocity.x - DAMPING >= 0 ? state.velocity.x - DAMPING : 0;
         }
     }
+    state.position.y = state.position.y + state.velocity.y;
     state.position.x = state.position.x + state.velocity.x;
 
     // update position
@@ -67,7 +78,9 @@ void Bird::update(vec4 extents) {
     //     state.position.x = extents[1];
     state.position.x = state.position.x < extents[0] ? extents[1] : state.position.x;
     state.position.x = state.position.x > extents[1] ? extents[0] : state.position.x;
-    state.position.y = state.position.y < extents[2] ? extents[2] : state.position.y;
+    state.position.y = state.position.y - bird_bbox[1].y < extents[2] ? extents[2] + bird_bbox[1].y : state.position.y;
+    if (state.position.y == extents[2] + bird_bbox[1].y)
+        state.velocity.y = 0;
     state.position.y = state.position.y > extents[3] ? extents[3] : state.position.y;
 
 

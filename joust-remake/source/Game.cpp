@@ -8,57 +8,32 @@
 
 #include "Game.h"
 
-bool Game::testIntersections()
-{
-  // test if ship is hit by asteroid using bounding box
+#define TOLERANCE 0.02f
 
-  /*
-  tcg::vec2 ship_bbox[2];
-  if (ship->state.turning == Ship::_NO_TURN)
-  {
-    for (int i = 0; i < 2; i++)
-    {
-      ship_bbox[i] = ship->ship_bbox[i];
-    }
+void Game::testIntersections(Bird *b)
+{
+  tcg::vec2 bird_bbox[2];
+  for (int i = 0; i < 2; i++) {
+    bird_bbox[i] = b->bird_bbox[i] + b->state.position;
   }
-  else if (ship->state.turning == Ship::_TURN_LEFT)
-  {
-    for (int i = 0; i < 2; i++)
-    {
-      ship_bbox[i] = ship->left_bbox[i];
-    }
+  for (int i = 0; i < platforms.size(); i++) {
+    if (((b->state.position.x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && b->state.position.x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
+        || bird_bbox[1].x  >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[1].x  <= platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x)
+        && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y+TOLERANCE))) {
+      b->state.velocity.y = 0;
+      b->state.position.y =  platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y - b->bird_bbox[1].y;
+    
+  } else {
+    b->fall();
   }
-  else if (ship->state.turning == Ship::_TURN_RIGHT)
-  {
-    for (int i = 0; i < 2; i++)
-    {
-      ship_bbox[i] = ship->right_bbox[i];
-    }
-  }
-  // translate bounding box to ship location, including rotation
-  for (int i = 0; i < 2; i++)
-  {
-    ship_bbox[i] = ship_bbox[i] + ship->state.cur_location;
-  }
-  for (int i = 0; i < asteroids.size(); i++)
-  {
-    if (asteroids[i]->asteroid_bbox[0].x + asteroids[i]->state.cur_location.x < ship_bbox[1].x &&
-        asteroids[i]->asteroid_bbox[1].x + asteroids[i]->state.cur_location.x > ship_bbox[0].x &&
-        asteroids[i]->asteroid_bbox[0].y + asteroids[i]->state.cur_location.y < ship_bbox[1].y &&
-        asteroids[i]->asteroid_bbox[1].y + asteroids[i]->state.cur_location.y > ship_bbox[0].y)
-    {
-      return true;
-    }
-  }
-  */
-  return false;
+}
 }
 
 Game::Game(){
   p1 = new Bird();
   p2 = new Bird();
-  shelf1 = new Shelf(vec2(-1, 0.5));
-  shelf2 = new Shelf(vec2(1,0.5));
+  platforms.push_back(new Platform(vec2(-1,0.5)));
+  platforms.push_back(new Platform(vec2(1, 0.5)));
   game_over = false;
   
   std::string file_location = source_path + "sprites/game_over.png";

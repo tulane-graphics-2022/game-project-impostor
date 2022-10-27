@@ -10,7 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.cpp" "CMakeFiles/joust-remake.dir/source/Bird.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/Bird.cpp.o.d"
   "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Game.cpp" "CMakeFiles/joust-remake.dir/source/Game.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/Game.cpp.o.d"
-  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Shelf.cpp" "CMakeFiles/joust-remake.dir/source/Shelf.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/Shelf.cpp.o.d"
+  "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Platform.cpp" "CMakeFiles/joust-remake.dir/source/Platform.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/Platform.cpp.o.d"
   "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/main.cpp" "CMakeFiles/joust-remake.dir/source/main.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/main.cpp.o.d"
   "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/path/path.cpp" "CMakeFiles/joust-remake.dir/source/path/path.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/path/path.cpp.o.d"
   "/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/utils/lodepng.cpp" "CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o" "gcc" "CMakeFiles/joust-remake.dir/source/utils/lodepng.cpp.o.d"

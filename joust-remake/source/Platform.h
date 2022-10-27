@@ -1,22 +1,22 @@
 
-#ifndef __Joust__Shelf__
-#define __Joust__Shelf__
+#ifndef __Joust__Platform__
+#define __Joust__Platform__
 
 #include "Game.h"
 
 using namespace tcg;
 
-class Shelf {
+class Platform {
 
     friend class Game;
-    vec2 shelf_bbox[2];
-    std::vector <vec2> shelf_vert;
-    std::vector <vec2> shelf_uv;
+    vec2 platform_bbox[2];
+    std::vector <vec2> platform_vert;
+    std::vector <vec2> platform_uv;
   
     std::vector < vec2 > outline;
 
-    std::vector<unsigned char> shelf_im;
-    unsigned shelf_im_width, shelf_im_height;
+    std::vector<unsigned char> platform_im;
+    unsigned platform_im_width, platform_im_height;
 
     struct {
         vec2 position;
@@ -34,8 +34,8 @@ class Shelf {
         GLuint vertex_shader, fragment_shader;  //Shaders
         GLint vpos_location, vtex_location;   //reference to pos and color in shaders
         GLint M_location;     //Reference to matrix in shader
-        GLuint shelf_texture;
-        GLuint shelf_t_texture;
+        GLuint platform_texture;
+        GLuint platform_t_texture;
         GLuint left_texture;
         GLuint right_texture;
         GLuint left_t_texture;
@@ -43,7 +43,7 @@ class Shelf {
     } GLvars;
 
     public:
-        Shelf(vec2);
+        Platform(vec2);
 
         void draw(mat4 proj);
 

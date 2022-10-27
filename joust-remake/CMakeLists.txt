@@ -38,8 +38,8 @@ add_executable(joust-remake WIN32 MACOSX_BUNDLE
 	source/main.cpp
     source/Bird.h
     source/Bird.cpp
-    source/Shelf.h
-    source/Shelf.cpp
+    source/Platform.h
+    source/Platform.cpp
     shaders/fshader_Texture.glsl
 	shaders/vshader_Texture.glsl
 	shaders/fshader_Bullets.glsl

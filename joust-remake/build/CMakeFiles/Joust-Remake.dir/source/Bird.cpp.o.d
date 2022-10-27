@@ -1,5 +1,5 @@
-CMakeFiles/joust-remake.dir/source/Game.cpp.o: \
-  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Game.cpp \
+CMakeFiles/joust-remake.dir/source/Bird.cpp.o: \
+  /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Bird.cpp \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/source/Game.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/deps/glad/gl.h \
   /Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/glfw-3.3.7/deps/glad/khrplatform.h \

@@ -25,16 +25,14 @@
 #include <utils/loadTexture.h>
 
 #include "Bird.h"
-#include "Shelf.h"
+#include "Platform.h"
 
 class Game{
 
 public:
   Bird *p1;
   Bird *p2;
-  Shelf *shelf1;
-  Shelf *shelf2;
-  //  std::vector <Platform *> platforms;
+  std::vector <Platform *> platforms;
 
 
   //left right bottom top of window
@@ -69,16 +67,18 @@ public:
   void init(){
     p1->gl_init();
     p2->gl_init();
-    shelf1->gl_init();
-    shelf2->gl_init();
+    for (Platform *p : platforms) {
+      p->gl_init();
+    }
     gl_init();
   }
   
   void draw(mat4 proj){
     p1->draw(proj);
     p2->draw(proj);
-    shelf1->draw(proj);
-    shelf2->draw(proj);
+    for (Platform *p : platforms) {
+      p->draw(proj);
+    }
 
     if(game_over){
       draw_game_over(proj);
@@ -86,11 +86,12 @@ public:
   }
   
   void update(){
+    testIntersections(p1);
+    testIntersections(p2);
     p1->update(screen_extents);
     p2->update(screen_extents);
+    game_over = false;
     
-    //if (!game_over)
-      game_over = testIntersections();
   }
   
 private:
@@ -98,7 +99,7 @@ private:
   void gl_init();
   void draw_game_over(mat4 proj);
   
-  bool testIntersections();
+  void testIntersections(Bird *b);
   
 };
 

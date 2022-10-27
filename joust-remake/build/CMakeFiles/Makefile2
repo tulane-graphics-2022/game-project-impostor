@@ -139,8 +139,8 @@ CMakeFiles/glad.dir/clean:
 # Target rules for target CMakeFiles/joust-remake.dir
 
 # All Build rule for target.
-CMakeFiles/joust-remake.dir/all: CMakeFiles/glad.dir/all
 CMakeFiles/joust-remake.dir/all: glfw-3.3.7/src/CMakeFiles/glfw.dir/all
+CMakeFiles/joust-remake.dir/all: CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joust-remake.dir/build.make CMakeFiles/joust-remake.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/maddiewisinski/Documents/GitHub/game-project-impostor/joust-remake/build/CMakeFiles --progress-num=21,22,23,24,25,26,27,28 "Built target joust-remake"
