@@ -66,18 +66,9 @@ class Bird {
         void initTexture();
 
         inline void fly() {
-            if (state.jumps == 2) {
-                state.jumps--;
-                state.velocity.y = 0.04;
-                state.position.y +=0.03;
-            } else if (state.jumps == 1) {
-                state.jumps--;
-                state.velocity.y = 0.04;
-                state.position.y += 0.04;
-            }
-           
+            state.velocity.y = 0.04;
+            state.position.y +=0.03;
         }
-        inline void resetJumps() {state.jumps = 2;}
         inline void drop() {
             state.isFlying = false;
             state.isFalling = true;

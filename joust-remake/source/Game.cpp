@@ -30,8 +30,6 @@ void Game::testIntersections(Bird *b)
 }
   b->state.onSurface = onSurface;
   b->state.isFalling = !onSurface;
-  if (onSurface)
-    b->resetJumps();
 }
 
 Game::Game(){

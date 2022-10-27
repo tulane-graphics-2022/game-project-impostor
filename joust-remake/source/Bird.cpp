@@ -101,7 +101,6 @@ void Bird::update(vec4 extents) {
     state.position.y = state.position.y - bird_bbox[1].y < extents[2] ? extents[2] + bird_bbox[1].y : state.position.y;
     if (state.position.y == extents[2] + bird_bbox[1].y) {
         state.velocity.y = 0;
-        resetJumps();
     }
     state.position.y = state.position.y > extents[3] ? extents[3] : state.position.y;
 
