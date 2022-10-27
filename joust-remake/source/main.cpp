@@ -1,3 +1,10 @@
+//
+//  main.cpp
+//  JOUST
+//
+//  Created by Maddie Wisinski and Bennett Hermanoff 
+//
+//
 #include "Game.h"
 
 GLFWwindow* window;
