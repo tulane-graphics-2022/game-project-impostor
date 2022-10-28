@@ -66,15 +66,15 @@ class Bird {
         void initTexture();
 
         inline void fly() {
-            state.velocity.y = 0.04;
-            state.position.y +=0.03;
+            state.velocity.y = 0.032;
+            state.position.y +=0.02;
         }
         inline void drop() {
             state.isFlying = false;
             state.isFalling = true;
             // if surface is below, then SQUAT
             if (state.onSurface) {
-                state.position.y-=0.06;
+                state.position.y-=0.04;
                 state.velocity.y=-0.003;
             } else {
                 state.isSquatting = true;
