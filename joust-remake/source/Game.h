@@ -40,7 +40,10 @@ public:
   
 private:
   
+  int cooldown;
   bool game_over;
+  int p1score;
+  int p2score;
   
   std::vector<unsigned char> game_over_im;
   unsigned go_width, go_height;
@@ -67,8 +70,8 @@ public:
   void init(){
     p1->gl_init();
     p2->gl_init();
-    for (Platform *p : platforms) {
-      p->gl_init();
+    for (int j = 0; j < platforms.size(); j++){
+      platforms[j]->gl_init();
     }
     gl_init();
   }
@@ -76,29 +79,36 @@ public:
   void draw(mat4 proj){
     p1->draw(proj);
     p2->draw(proj);
-    for (Platform *p : platforms) {
-      p->draw(proj);
+    for (int j = 0; j < platforms.size(); j++){
+      platforms[j]->draw(proj);
     }
-
     if(game_over){
       draw_game_over(proj);
     }
   }
   
   void update(){
+    cooldown = cooldown > 0 ? cooldown - 1 : 0;
     testIntersections(p1);
     testIntersections(p2);
     p1->update(screen_extents);
     p2->update(screen_extents);
+    if (p1->isAbove(*p2)) {
+      resetCooldown();
+      p1score+=10;
+      }
+    if (p2->isAbove(*p1)) {
+      resetCooldown();
+      p2score+=10;
+      }
     game_over = false;
     
   }
   
 private:
-  
+  inline void resetCooldown() {cooldown = 20;}
   void gl_init();
-  void draw_game_over(mat4 proj);
-  
+  void draw_game_over(mat4 proj); 
   void testIntersections(Bird *b);
   
 };

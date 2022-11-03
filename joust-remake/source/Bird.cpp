@@ -4,7 +4,7 @@
 #define MAX_SPEED 0.05f
 #define DAMPING 0.009f
 #define ACC 0.006f
-#define G 0.0007f
+#define G 0.0008f
 #define MAX_FALL_SPEED 0.1f
 #define BORDER 0.075f
 Bird::Bird(){
@@ -51,12 +51,6 @@ Bird::Bird(){
   
 };
 
-bool Bird::isAbove(Bird b) {
-    if (state.position.y > b.state.position.y) {
-        return true;
-    }
-    return false;
-}
 void Bird::fall() {
     // if (!state.isFalling) {
     //     state.isFalling = true;

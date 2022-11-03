@@ -41,6 +41,9 @@ Game::Game(){
   platforms.push_back(new Platform(vec2(-0.5, -0.5)));
   platforms.push_back(new Platform(vec2(0.5, -0.5)));
   game_over = false;
+  cooldown = 0;
+  p1score = 0;
+  p2score = 0;
   
   std::string file_location = source_path + "sprites/game_over.png";
   unsigned error = lodepng::decode(game_over_im, go_width, go_height, file_location.c_str());

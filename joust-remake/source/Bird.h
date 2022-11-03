@@ -57,7 +57,7 @@ class Bird {
         void draw(mat4 proj);
         void update(vec4 extents);
         void reset();
-        bool isAbove(Bird b);
+        
         void fall();
 
         void gl_init();
@@ -83,6 +83,15 @@ class Bird {
         inline void undrop() {
             state.isSquatting = false;
         }   
+        inline bool isAbove(Bird b) { 
+            return (state.position.y + bird_bbox[0].y < b.state.position.y + b.bird_bbox[1].y && // above
+                    state.position.y + bird_bbox[0].y > b.state.position.y &&
+                    bird_bbox[1].x + state.position.x > b.bird_bbox[0].x + b.state.position.x && // right edge overlap
+                    bird_bbox[1].x + state.position.x < b.bird_bbox[1].x + b.state.position.x &&
+                    bird_bbox[0].x + state.position.x > b.bird_bbox[0].x + b.state.position.x &&
+                    bird_bbox[0].x + state.position.x < b.bird_bbox[1].x + b.state.position.x    // left edge overlap
+                    );     
+            }
         inline void turnLeft() { state.direction = true; state.isMoving = true; }
         inline void turnRight() { state.direction = false; state.isMoving = true;}
         inline void stop() { state.isMoving = false; }
