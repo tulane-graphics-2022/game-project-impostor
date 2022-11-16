@@ -22,6 +22,15 @@ class Bird {
     std::vector<unsigned char> bird_im;
     unsigned bird_im_width, bird_im_height;
 
+    std::vector<unsigned char> bird_im_walk1;
+    unsigned bird_im_width_walk1, bird_im_height_walk1;
+
+    std::vector<unsigned char> bird_im_walk2;
+    unsigned bird_im_width_walk2, bird_im_height_walk2;
+
+    std::vector<unsigned char> bird_im_fly;
+    unsigned bird_im_width_fly, bird_im_height_fly;
+
     struct {
         
         vec2 velocity;
@@ -33,6 +42,7 @@ class Bird {
         bool isMoving;
         bool isSquatting;
         bool onSurface;
+        int frame;
         int jumps;
     } state;
 
@@ -44,11 +54,9 @@ class Bird {
         GLint vpos_location, vtex_location;   //reference to pos and color in shaders
         GLint M_location;     //Reference to matrix in shader
         GLuint bird_texture;
-        GLuint bird_t_texture;
-        GLuint left_texture;
-        GLuint right_texture;
-        GLuint left_t_texture;
-        GLuint right_t_texture;
+        GLuint bird_texture_walk1;
+        GLuint bird_texture_walk2;
+        GLuint bird_texture_fly;
     } GLvars;
 
     public:

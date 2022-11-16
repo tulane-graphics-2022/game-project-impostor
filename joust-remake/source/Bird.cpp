@@ -14,6 +14,7 @@ Bird::Bird(){
     
     // add vertices to create the shape of the bird
     state.isMoving = false;
+    state.frame = 0;
     state.velocity = vec2(0.0f, 0.0f);
     bird_bbox[0] = vec2(-BORDER, -BORDER);
     bird_bbox[1] = vec2(BORDER,   BORDER);
@@ -22,18 +23,39 @@ Bird::Bird(){
     bird_uv.resize(8);
 
     // facing left
-    bird_vert[0] = (vec2(-BORDER,  BORDER)); bird_uv[1] = (vec2(0.0,1.0));
-    bird_vert[1] = (vec2(-BORDER, -BORDER)); bird_uv[0] = (vec2(0.0,0.0));
-    bird_vert[2] = (vec2(BORDER,   BORDER)); bird_uv[3] = (vec2(1.0,1.0));
-    bird_vert[3] = (vec2(BORDER,  -BORDER)); bird_uv[2] = (vec2(1.0,0.0));
+    bird_vert[0] = (vec2(-BORDER,  BORDER)); bird_uv[0] = (vec2(0.0,0.0));
+    bird_vert[1] = (vec2(-BORDER, -BORDER)); bird_uv[1] = (vec2(0.0,1.0));
+    bird_vert[2] = (vec2(BORDER,   BORDER)); bird_uv[2] = (vec2(1.0,0.0));
+    bird_vert[3] = (vec2(BORDER,  -BORDER)); bird_uv[3] = (vec2(1.0,1.0));
     
     // facing right
-    bird_vert[7] = (vec2(BORDER,  -BORDER)); bird_uv[4] = (vec2(1.0,0.0));
-    bird_vert[4] = (vec2(-BORDER,  BORDER)); bird_uv[7] = (vec2(0.0,1.0));
-    bird_vert[5] = (vec2(-BORDER, -BORDER)); bird_uv[6] = (vec2(0.0,0.0));
-    bird_vert[6] = (vec2(BORDER,   BORDER)); bird_uv[5] = (vec2(1.0,1.0));
+    bird_vert[4] = (vec2(-BORDER,  BORDER)); bird_uv[4] = (vec2(1.0,0.0));
+    bird_vert[5] = (vec2(-BORDER, -BORDER)); bird_uv[5] = (vec2(1.0,1.0));
+    bird_vert[6] = (vec2(BORDER,   BORDER)); bird_uv[6] = (vec2(0.0,0.0));
+    bird_vert[7] = (vec2(BORDER,  -BORDER)); bird_uv[7] = (vec2(0.0,1.0));
     
     
+    std::string file_location = source_path + "sprites/bird/inAirAndStanding.png";
+    unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
+    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+    file_location = source_path + "sprites/bird/walk1.png";
+    error = lodepng::decode(bird_im_walk1, bird_im_width_walk1, bird_im_height_walk1, file_location.c_str());
+    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+    file_location = source_path + "sprites/bird/walk2.png";
+    error = lodepng::decode(bird_im_walk2, bird_im_width_walk2, bird_im_height_walk2, file_location.c_str());
+    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+    file_location = source_path + "sprites/bird/fly.png";
+    error = lodepng::decode(bird_im_fly, bird_im_width_fly, bird_im_height_fly, file_location.c_str());
+    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+    // file_location = source_path + "sprites/bird/.png";
+    // error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
+    // std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+
     
     // below is bird stuff (literally the bird)
     // if(index == 1){
@@ -45,9 +67,10 @@ Bird::Bird(){
     //     unsigned error = lodepng::decode(asteroid_im, im_width, im_height, file_location.c_str());
     // }
     // std::cout << im_width << " X " << im_height << " image loaded\n";
-    std::string file_location = source_path + "sprites/test_bird.png";
-    unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
-    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+    
+    
+
+
   
 };
 
@@ -87,9 +110,6 @@ void Bird::update(vec4 extents) {
     state.position.y = state.position.y + state.velocity.y;
     state.position.x = state.position.x + state.velocity.x;
 
-    // update position
-    // if (state.position.x < extents[0])
-    //     state.position.x = extents[1];
     state.position.x = state.position.x + bird_bbox[1].x < extents[0] ? extents[1] : state.position.x;
     state.position.x = state.position.x + bird_bbox[0].x > extents[1] ? extents[0] : state.position.x;
     state.position.y = state.position.y - bird_bbox[1].y < extents[2] ? extents[2] + bird_bbox[1].y : state.position.y;
@@ -98,26 +118,25 @@ void Bird::update(vec4 extents) {
     }
     state.position.y = state.position.y > extents[3] ? extents[3] : state.position.y;
 
-
+    if (state.velocity.y < 0 || (state.onSurface && state.velocity.x == 0)) {
+        state.frame = 0;
+    }
+    if ((state.frame == 17 || state.frame == 0) && state.onSurface && state.velocity != 0)
+        state.frame = 1;
+    if ((state.frame >= 1 && state.frame <= 16 && state.velocity.x != 0)) {
+        state.frame = (state.frame+1)%16 + 1;
+    }
+    if (state.velocity.y > 0) {
+        state.frame = 17;
+    }
+    
+    
 
     // check isFalling, isFlying, direction
     // check for collision with enemy -> if !b1.isAbove(b2) -> dead
     // update position based on velocity and direction
     // check for collisions with screen edges
 }
-// void Asteroid::update_state(vec4 extents){
-
-//   state.cur_location+=state.velocity;
-//   state.angle += angle_increment;
-
-//   if(state.cur_location.x < extents[0] || state.cur_location.x > extents[1]){
-//     state.cur_location.x = -state.cur_location.x;
-//   }
-//   if(state.cur_location.y < extents[2] ||state.cur_location.y > extents[3]){
-//     state.cur_location.y = -state.cur_location.y;
-//   }
-
-// }
 
 void Bird::gl_init() {
     // get the sizes of the position vector and color vector
@@ -148,10 +167,37 @@ void Bird::gl_init() {
     check_program_link(GLvars.program);
     
     glGenTextures( 1, &GLvars.bird_texture );
+    glGenTextures( 1, &GLvars.bird_texture_walk1 );
+    glGenTextures( 1, &GLvars.bird_texture_walk2 );
+    glGenTextures( 1, &GLvars.bird_texture_fly );
 
     glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture );
     glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, bird_im_width, bird_im_height,
                 0, GL_RGBA, GL_UNSIGNED_BYTE, &bird_im[0]);
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
+
+    glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture_walk1 );
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, bird_im_width_walk1, bird_im_height_walk1,
+                0, GL_RGBA, GL_UNSIGNED_BYTE, &bird_im_walk1[0]);
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );  
+
+    glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture_walk2);
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, bird_im_width_walk2, bird_im_height_walk2,
+                0, GL_RGBA, GL_UNSIGNED_BYTE, &bird_im_walk2[0]);
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
+
+    glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture_fly );
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, bird_im_width_fly, bird_im_height_fly,
+                0, GL_RGBA, GL_UNSIGNED_BYTE, &bird_im_fly[0]);
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
@@ -203,11 +249,18 @@ void Bird::draw(mat4 Projection){
   
   glLineWidth(1.2);
   
-  glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture );
-  if (state.direction)
+    if (state.frame == 0) 
+        glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture );
+    else if (state.frame >= 1 && state.frame<=8 )
+        glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture_walk1 );
+    else if (state.frame >= 9 && state.frame <= 16)
+        glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture_walk2);
+    else if (state.frame == 17)
+        glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture_fly);
+  if (state.direction) 
     glDrawArrays( GL_TRIANGLE_STRIP, 0, 4);
   else
-    glDrawArrays( GL_TRIANGLE_STRIP, 4, bird_vert.size());
+    glDrawArrays( GL_TRIANGLE_STRIP, 4, 4);
   
   glBindVertexArray(0);
   glUseProgram(0);
