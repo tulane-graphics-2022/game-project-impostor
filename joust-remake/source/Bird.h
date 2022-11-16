@@ -9,6 +9,7 @@ using namespace tcg;
 class Bird {
 
     friend class Game;
+    int player;
     float g;
     float max_vel;
     float accel;
@@ -60,7 +61,7 @@ class Bird {
     } GLvars;
 
     public:
-        Bird();
+        Bird(int player);
 
         void draw(mat4 proj);
         void update(vec4 extents);

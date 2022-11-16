@@ -42,7 +42,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     game->p2->fly();
   if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT))
     game->p2->turnLeft();
-  if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT))
+  if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT)) 
     game->p2->turnRight();
   if (key == GLFW_KEY_DOWN && (action == GLFW_PRESS || action == GLFW_REPEAT))
     game->p2->drop();

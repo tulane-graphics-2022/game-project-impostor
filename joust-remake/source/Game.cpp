@@ -24,20 +24,23 @@ void Game::testIntersections(Bird *b)
     }
     if (((bird_bbox[0].x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[0].x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
         || bird_bbox[1].x  >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[1].x  <= platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x)
-        && (b->state.velocity.y <= 0) && ( bird_bbox[1].y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y-TOLERANCE*2 &&  bird_bbox[1].y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + TOLERANCE*2))) {
+        && (b->state.velocity.y <= 0) && ( b->state.position.y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y -TOLERANCE*3 &&  b->state.position.y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y + TOLERANCE*2))) {
       b->state.velocity.y = 0;
-      b->state.position.y =  platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y - b->bird_bbox[1].y;
+      b->state.position.y =  platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y;
       onSurface = true;
     } else if (bird_bbox[0].y == screen_extents[2]) {
       onSurface = true;
     } else {
       b->fall();
     }
-    if (plat_bbox[1].y -TOLERANCE*6< bird_bbox[1].y && -TOLERANCE*6 + plat_bbox[0].y > bird_bbox[0].y &&
-        ((platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x < bird_bbox[1].x + 0.03 && platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x > bird_bbox[1].x - 0.03)
-        || platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x > bird_bbox[0].x - 0.03 && platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x < bird_bbox[0].x + 0.03)) {
+    if (plat_bbox[0].y < bird_bbox[1].y - TOLERANCE*2 &&  plat_bbox[1].y > bird_bbox[0].y + TOLERANCE*2 &&
+        ((!b->state.direction && platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x < bird_bbox[1].x + 0.03 && platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x > bird_bbox[1].x - 0.03)
+        || (platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x > bird_bbox[0].x - 0.03 && platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x < bird_bbox[0].x + 0.03 && b->state.direction))) {
       b->state.velocity.x = -b->state.velocity.x;
-      b->state.direction = !b->state.direction;
+      if (b->state.direction)
+        b->turnRight();
+      else
+        b->turnLeft();
     }
 
 }
@@ -46,8 +49,8 @@ void Game::testIntersections(Bird *b)
 }
 
 Game::Game(){
-  p1 = new Bird();
-  p2 = new Bird();
+  p1 = new Bird(1);
+  p2 = new Bird(2);
   platforms.push_back(new Platform(vec2(-1,0.5)));
   platforms.push_back(new Platform(vec2(1, 0.5)));
   platforms.push_back(new Platform(vec2(0,0)));

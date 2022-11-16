@@ -7,11 +7,11 @@
 #define G 0.0008f
 #define MAX_FALL_SPEED 0.1f
 #define BORDER 0.075f
-Bird::Bird(){
+Bird::Bird(int player){
 
     // instantiate position, velocity, etc
     
-    
+    player = player;
     // add vertices to create the shape of the bird
     state.isMoving = false;
     state.frame = 0;
@@ -34,23 +34,40 @@ Bird::Bird(){
     bird_vert[6] = (vec2(BORDER,   BORDER)); bird_uv[6] = (vec2(0.0,0.0));
     bird_vert[7] = (vec2(BORDER,  -BORDER)); bird_uv[7] = (vec2(0.0,1.0));
     
-    
-    std::string file_location = source_path + "sprites/bird/inAirAndStanding.png";
-    unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
-    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+    if (player == 1) {
+        std::string file_location = source_path + "sprites/bird_1/inAirAndStanding.png";
+        unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
 
-    file_location = source_path + "sprites/bird/walk1.png";
-    error = lodepng::decode(bird_im_walk1, bird_im_width_walk1, bird_im_height_walk1, file_location.c_str());
-    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+        file_location = source_path + "sprites/bird_1/walk1.png";
+        error = lodepng::decode(bird_im_walk1, bird_im_width_walk1, bird_im_height_walk1, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
 
-    file_location = source_path + "sprites/bird/walk2.png";
-    error = lodepng::decode(bird_im_walk2, bird_im_width_walk2, bird_im_height_walk2, file_location.c_str());
-    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+        file_location = source_path + "sprites/bird_1/walk2.png";
+        error = lodepng::decode(bird_im_walk2, bird_im_width_walk2, bird_im_height_walk2, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
 
-    file_location = source_path + "sprites/bird/fly.png";
-    error = lodepng::decode(bird_im_fly, bird_im_width_fly, bird_im_height_fly, file_location.c_str());
-    std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+        file_location = source_path + "sprites/bird_1/fly.png";
+        error = lodepng::decode(bird_im_fly, bird_im_width_fly, bird_im_height_fly, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+    }
+    else {
+        std::string file_location = source_path + "sprites/bird_2/inAirAndStanding.png";
+        unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
 
+        file_location = source_path + "sprites/bird_2/walk1.png";
+        error = lodepng::decode(bird_im_walk1, bird_im_width_walk1, bird_im_height_walk1, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+        file_location = source_path + "sprites/bird_2/walk2.png";
+        error = lodepng::decode(bird_im_walk2, bird_im_width_walk2, bird_im_height_walk2, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+
+        file_location = source_path + "sprites/bird_2/fly.png";
+        error = lodepng::decode(bird_im_fly, bird_im_width_fly, bird_im_height_fly, file_location.c_str());
+        std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
+    }
     // file_location = source_path + "sprites/bird/.png";
     // error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
     // std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";

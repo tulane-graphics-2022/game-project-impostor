@@ -7,8 +7,8 @@ Platform::Platform(vec2 pos){
     
     state.position = pos;
     // add vertices to create the shape of the platform
-    platform_bbox[0] = vec2(-0.15, 0.1);
-    platform_bbox[1] = vec2(0.15,   0.17);
+    platform_bbox[0] = vec2(-0.15, -0.06);
+    platform_bbox[1] = vec2(0.15,   0.03);
     
     platform_vert.resize(4);
     platform_uv.resize(4);
