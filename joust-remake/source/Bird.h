@@ -15,6 +15,8 @@ class Bird {
     float accel;
     float damping;
     vec2 bird_bbox[2];
+    vec2 flamefly_bbox[2];
+    vec2 fly_bbox[2];
     std::vector <vec2> bird_vert;
     std::vector <vec2> bird_uv;
   
@@ -31,6 +33,14 @@ class Bird {
 
     std::vector<unsigned char> bird_im_fly;
     unsigned bird_im_width_fly, bird_im_height_fly;
+
+    std::vector<unsigned char> bird_im_takeoff;
+    unsigned bird_im_width_takeoff, bird_im_height_takeoff;
+
+    std::vector<unsigned char> bird_im_flyNoFlame;
+    unsigned bird_im_width_flyNoFlame, bird_im_height_flyNoFlame;
+
+    
 
     struct {
         
@@ -58,6 +68,9 @@ class Bird {
         GLuint bird_texture_walk1;
         GLuint bird_texture_walk2;
         GLuint bird_texture_fly;
+        GLuint bird_texture_takeoff;
+        GLuint bird_texture_flyNoFlame;
+
     } GLvars;
 
     public:
@@ -77,13 +90,15 @@ class Bird {
         inline void fly() {
             state.velocity.y = 0.032;
             state.position.y +=0.02;
+            if (state.frame >= 23)
+                state.frame = 19;
         }
         inline void drop() {
             state.isFlying = false;
             state.isFalling = true;
             // if surface is below, then SQUAT
             if (state.onSurface) {
-                state.position.y-=0.04;
+                state.position.y-=0.05;
                 state.velocity.y=-0.003;
             } else {
                 state.isSquatting = true;
