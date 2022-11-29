@@ -24,7 +24,7 @@ void Game::testIntersections(Bird *b)
     }
     if (((bird_bbox[0].x >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[0].x <= platforms[i]->state.position.x + platforms[i]->platform_bbox[1].x 
         || bird_bbox[1].x  >= platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x && bird_bbox[1].x  <= platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x)
-        && (b->state.velocity.y <= 0) && ( b->state.position.y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y -TOLERANCE*2 &&  b->state.position.y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y + TOLERANCE*2))) {
+        && (b->state.velocity.y <= 0) && ( b->state.position.y >= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y -TOLERANCE*2.5 &&  b->state.position.y <= platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y + TOLERANCE*2))) {
       b->state.velocity.y = 0;
       b->state.position.y =  platforms[i]->state.position.y + platforms[i]->platform_bbox[1].y + b->bird_bbox[1].y;
       onSurface = true;
@@ -42,15 +42,21 @@ void Game::testIntersections(Bird *b)
       else
         b->turnLeft();
     }
+    if (p1->isAbove(*p2)) {
+      p2->state.position = vec2(-1,0.25);
+    } else if (p2->isAbove(*p1)) {
+      p1->state.position = vec2(1,0.25);
+    }
 
 }
+  b->state.velocity.y = onSurface ? 0 : b->state.velocity.y;
   b->state.onSurface = onSurface;
   b->state.isFalling = !onSurface;
 }
 
 Game::Game(){
-  p1 = new Bird(1);
-  p2 = new Bird(2);
+  p1 = new Bird(1, vec2(1, 0.25));
+  p2 = new Bird(2, vec2(-1,0.25));
   platforms.push_back(new Platform(vec2(-1,0.5)));
   platforms.push_back(new Platform(vec2(1, 0.5)));
   platforms.push_back(new Platform(vec2(0,0)));
@@ -61,9 +67,11 @@ Game::Game(){
   p1score = 0;
   p2score = 0;
   
-  std::string file_location = source_path + "sprites/game_over.png";
+  std::string file_location = source_path + "sprites/background.png";
   unsigned error = lodepng::decode(game_over_im, go_width, go_height, file_location.c_str());
   std::cout << go_width << " X " << go_height << " game image loaded\n";
+
+  
   
 };
 

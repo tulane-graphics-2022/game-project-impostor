@@ -77,11 +77,13 @@ public:
   }
   
   void draw(mat4 proj){
+    draw_game_over(proj);
     p1->draw(proj);
     p2->draw(proj);
     for (int j = 0; j < platforms.size(); j++){
       platforms[j]->draw(proj);
     }
+    
     if(game_over){
       draw_game_over(proj);
     }

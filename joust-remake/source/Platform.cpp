@@ -7,16 +7,16 @@ Platform::Platform(vec2 pos){
     
     state.position = pos;
     // add vertices to create the shape of the platform
-    platform_bbox[0] = vec2(-0.15, -0.06);
-    platform_bbox[1] = vec2(0.15,   0.03);
+    platform_bbox[0] = vec2(-0.18, -0.06);
+    platform_bbox[1] = vec2(0.18,   0.02);
     
     platform_vert.resize(4);
     platform_uv.resize(4);
 
-    platform_vert[1] = (vec2(-0.15, -0.15)); platform_uv[0] = (vec2(0.0,0.0));
-    platform_vert[0] = (vec2(-0.15,  0.15)); platform_uv[1] = (vec2(0.0,1.0));
-    platform_vert[3] = (vec2(0.15,  -0.15)); platform_uv[2] = (vec2(1.0,0.0));
-    platform_vert[2] = (vec2(0.15,   0.15)); platform_uv[3] = (vec2(1.0,1.0));
+    platform_vert[1] = (vec2(-0.18, -0.06)); platform_uv[0] = (vec2(0.0,0.0));
+    platform_vert[0] = (vec2(-0.18,  0.03)); platform_uv[1] = (vec2(0.0,1.0));
+    platform_vert[3] = (vec2(0.18,  -0.06)); platform_uv[2] = (vec2(1.0,0.0));
+    platform_vert[2] = (vec2(0.18,   0.03)); platform_uv[3] = (vec2(1.0,1.0));
     // below is bird stuff (literally the bird)
     // if(index == 1){
     //     std::string file_location = source_path + "sprites/asteroid_1.png";
@@ -27,7 +27,7 @@ Platform::Platform(vec2 pos){
     //     unsigned error = lodepng::decode(asteroid_im, im_width, im_height, file_location.c_str());
     // }
     // std::cout << im_width << " X " << im_height << " image loaded\n";
-    std::string file_location = source_path + "sprites/platform.png";
+    std::string file_location = source_path + "sprites/purple_platform.png";
     unsigned error = lodepng::decode(platform_im, platform_im_width, platform_im_height, file_location.c_str());
     std::cout << platform_im_width << " X " << platform_im_height << " image loaded\n";
   

@@ -4,16 +4,18 @@
 #define MAX_SPEED 0.05f
 #define DAMPING 0.009f
 #define ACC 0.006f
-#define G 0.0004f
+#define G 0.0005f
 #define MAX_FALL_SPEED 0.1f
 #define BORDER 0.075f
-#define FLAMEFLY 0.83f
-#define FLY 0.72f
-Bird::Bird(int player){
+#define FLAMEFLY 0.67f
+#define FLY 0.44f
+Bird::Bird(int player, vec2 position){
 
     // instantiate position, velocity, etc
     
     player = player;
+    state.position = position;
+    state.direction = player == 1;
     // add vertices to create the shape of the bird
     state.isMoving = false;
     state.frame = 0;
@@ -43,9 +45,9 @@ Bird::Bird(int player){
     bird_bbox[1] = bird_vert[2];
 
     // facing left - flying w flame
-    bird_vert[8] = (vec2(-BORDER,  FLAMEFLY*BORDER)); bird_uv[8] = (vec2(0.0,0.0));
+    bird_vert[8] = (vec2(-BORDER,  BORDER)); bird_uv[8] = (vec2(0.0,0.0));
     bird_vert[9] = (vec2(-BORDER, -FLAMEFLY*BORDER)); bird_uv[9] = (vec2(0.0,1.0));
-    bird_vert[10] = (vec2(BORDER,   FLAMEFLY*BORDER)); bird_uv[10] = (vec2(1.0,0.0));
+    bird_vert[10] = (vec2(BORDER,   BORDER)); bird_uv[10] = (vec2(1.0,0.0));
     bird_vert[11] = (vec2(BORDER,  -FLAMEFLY*BORDER)); bird_uv[11] = (vec2(1.0,1.0));
 
     //facing right - flying w flame
@@ -58,9 +60,9 @@ Bird::Bird(int player){
     flamefly_bbox[1] = bird_vert[14];
 
     // facing left - flying no flame
-    bird_vert[16] = (vec2(-BORDER,  FLY*BORDER)); bird_uv[16] = (vec2(0.0,0.0));
+    bird_vert[16] = (vec2(-BORDER,  BORDER)); bird_uv[16] = (vec2(0.0,0.0));
     bird_vert[17] = (vec2(-BORDER, -FLY*BORDER)); bird_uv[17] = (vec2(0.0,1.0));
-    bird_vert[18] = (vec2(BORDER,   FLY*BORDER)); bird_uv[18] = (vec2(1.0,0.0));
+    bird_vert[18] = (vec2(BORDER,   BORDER)); bird_uv[18] = (vec2(1.0,0.0));
     bird_vert[19] = (vec2(BORDER,  -FLY*BORDER)); bird_uv[19] = (vec2(1.0,1.0));
 
     //facing right - flying no flame
@@ -98,7 +100,7 @@ Bird::Bird(int player){
         std::cout << bird_im_width_flyNoFlame << " X " << bird_im_height_flyNoFlame << " image loaded\n";
 
     }
-    else {
+    else if (player == 2){
         std::string file_location = source_path + "sprites/bird_2/inAirAndStanding2.png";
         unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
         std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
@@ -130,6 +132,7 @@ void Bird::fall() {
     if (state.velocity.y > -MAX_FALL_SPEED) {
         state.velocity.y -= G;
     }
+    state.onSurface = false;
 }
 void Bird::update(vec4 extents) {
 
@@ -169,22 +172,24 @@ void Bird::update(vec4 extents) {
         state.velocity.y = -0.33*state.velocity.y;
 
 
-    if (state.velocity.y < 0 || (state.onSurface && state.velocity.x == 0)) {
-        state.frame = 0;
-    }
+    
     if ((state.frame >= 1 && state.frame <= 16 && state.velocity.x != 0)) {
         state.frame = (state.frame+1)%16 + 1;
     }
-    if ((state.frame == 17 || state.frame == 0) && state.onSurface && state.velocity != 0)
+    if ((state.frame >= 17 || state.frame == 0) && state.onSurface && state.velocity.x != 0)
         state.frame = 1;
     if (state.frame >= 17 && state.velocity.y > 0)
         state.frame = state.frame < 28 ? state.frame + 1 : 28;
-
+    if (!state.onSurface && state.velocity.y<0) 
+        state.frame = 26;
     if (state.velocity.y > 0 && state.frame <= 16 && !state.onSurface) {
         state.frame = 17;
     }
     if (state.velocity.y > 0 && state.frame <= 16)
         state.frame = 19;
+    if (state.velocity.y == 0  && state.onSurface && state.velocity.x == 0) {
+        state.frame = 0;
+    }
     
 
 
@@ -226,6 +231,8 @@ void Bird::gl_init() {
     glGenTextures( 1, &GLvars.bird_texture_walk1 );
     glGenTextures( 1, &GLvars.bird_texture_walk2 );
     glGenTextures( 1, &GLvars.bird_texture_fly );
+    glGenTextures( 1, &GLvars.bird_texture_takeoff );
+    glGenTextures( 1, &GLvars.bird_texture_flyNoFlame );
 
     glBindTexture( GL_TEXTURE_2D, GLvars.bird_texture );
     glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, bird_im_width, bird_im_height,

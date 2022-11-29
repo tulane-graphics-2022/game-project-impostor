@@ -20,39 +20,39 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
   // p1
    // press
   if (key == GLFW_KEY_W && action == GLFW_PRESS)
-    game->p1->fly();
+    game->p2->fly();
   if (key == GLFW_KEY_A && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    game->p1->turnLeft();
+    game->p2->turnLeft();
   if (key == GLFW_KEY_D && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    game->p1->turnRight();
+    game->p2->turnRight();
   if (key == GLFW_KEY_S && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    game->p1->drop();
+    game->p2->drop();
   // release
   if (key == GLFW_KEY_W && action == GLFW_RELEASE)
-    game->p1->undrop();
+    game->p2->undrop();
   if (key == GLFW_KEY_A && action == GLFW_RELEASE)
-    game->p1->stop();
+    game->p2->stop();
   if (key == GLFW_KEY_D && action == GLFW_RELEASE)
-    game->p1->stop();
+    game->p2->stop();
   // TODO: more keys and functions, need to sketch out functions better
   
   // p2
     // press
   if (key == GLFW_KEY_UP && action == GLFW_PRESS)
-    game->p2->fly();
+    game->p1->fly();
   if (key == GLFW_KEY_LEFT && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    game->p2->turnLeft();
+    game->p1->turnLeft();
   if (key == GLFW_KEY_RIGHT && (action == GLFW_PRESS || action == GLFW_REPEAT)) 
-    game->p2->turnRight();
+    game->p1->turnRight();
   if (key == GLFW_KEY_DOWN && (action == GLFW_PRESS || action == GLFW_REPEAT))
-    game->p2->drop();
+    game->p1->drop();
   // release
   if (key == GLFW_KEY_UP && action == GLFW_RELEASE)
-    game->p2->undrop();
+    game->p1->undrop();
   if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
-    game->p2->stop();
+    game->p1->stop();
   if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
-    game->p2->stop();
+    game->p1->stop();
   
 }
 
