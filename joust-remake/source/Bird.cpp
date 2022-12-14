@@ -16,15 +16,10 @@ Bird::Bird(int player, vec2 position){
     player = player;
     state.position = position;
     state.direction = player == 1;
-    // add vertices to create the shape of the bird
     state.isMoving = false;
     state.frame = 0;
     state.velocity = vec2(0.0f, 0.0f);
-    
-
-
-
-    
+    state.accel = 0;
     
     bird_vert.resize(24);
     bird_uv.resize(24);
@@ -74,7 +69,7 @@ Bird::Bird(int player, vec2 position){
     fly_bbox[0] = bird_vert[17];
     fly_bbox[1] = bird_vert[18];
     
-   if (player == 1) {
+   if (player == 1) { // player 1 sprites
         std::string file_location = source_path + "sprites/bird_1/inAirAndStanding.png";
         unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
         std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
@@ -100,7 +95,7 @@ Bird::Bird(int player, vec2 position){
         std::cout << bird_im_width_flyNoFlame << " X " << bird_im_height_flyNoFlame << " image loaded\n";
 
     }
-    else if (player == 2){
+    else if (player == 2){ // player 2 sprites
         std::string file_location = source_path + "sprites/bird_2/inAirAndStanding2.png";
         unsigned error = lodepng::decode(bird_im, bird_im_width, bird_im_height, file_location.c_str());
         std::cout << bird_im_width << " X " << bird_im_height << " image loaded\n";
@@ -137,13 +132,13 @@ void Bird::fall() {
 void Bird::update(vec4 extents) {
 
 
-    // update velocity
+    // update velocity based on acceleration
 
-    if (state.isMoving) {
-        if (state.direction) {
-                state.velocity.x = abs(state.velocity.x - ACC) <= MAX_SPEED ? state.velocity.x - ACC : -MAX_SPEED; 
+    if (state.accel != 0) {
+        if (state.accel < 0) {
+                state.velocity.x = abs(state.velocity.x + state.accel) <= MAX_SPEED ? state.velocity.x + state.accel : -MAX_SPEED; 
             } else {
-                state.velocity.x = abs(state.velocity.x + ACC) <= MAX_SPEED ? state.velocity.x + ACC : MAX_SPEED;
+                state.velocity.x = abs(state.velocity.x + state.accel) <= MAX_SPEED ? state.velocity.x + state.accel : MAX_SPEED;
             }
     } else {
         if (state.direction) { // facing left
@@ -158,6 +153,7 @@ void Bird::update(vec4 extents) {
                 state.velocity.x = state.velocity.x - DAMPING >= 0 ? state.velocity.x - DAMPING : 0;
         }
     }
+    // update position based on velocity
     state.position.y = state.position.y + state.velocity.y;
     state.position.x = state.position.x + state.velocity.x;
 
@@ -172,7 +168,7 @@ void Bird::update(vec4 extents) {
         state.velocity.y = -0.33*state.velocity.y;
 
 
-    
+    // update frame
     if ((state.frame >= 1 && state.frame <= 16 && state.velocity.x != 0)) {
         state.frame = (state.frame+1)%16 + 1;
     }
@@ -190,13 +186,8 @@ void Bird::update(vec4 extents) {
     if (state.velocity.y == 0  && state.onSurface && state.velocity.x == 0) {
         state.frame = 0;
     }
-    
-
-
-    // check isFalling, isFlying, direction
-    // check for collision with enemy -> if !b1.isAbove(b2) -> dead
-    // update position based on velocity and direction
-    // check for collisions with screen edges
+    // switch to direction player is moving in unless they stopped moving, then stay in that direction
+    state.direction = state.velocity.x == 0 && state.direction ? true : state.velocity.x < 0;
 }
 
 void Bird::gl_init() {

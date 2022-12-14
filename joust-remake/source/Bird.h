@@ -5,14 +5,14 @@
 #include "Game.h"
 
 using namespace tcg;
-
+#define ACC 0.005f
+#define MAX_ACC 0.005f
 class Bird {
 
     friend class Game;
     int player;
     float g;
     float max_vel;
-    float accel;
     float damping;
     vec2 bird_bbox[2];
     vec2 flamefly_bbox[2];
@@ -55,6 +55,7 @@ class Bird {
         bool onSurface;
         int frame;
         int jumps;
+        float accel;
     } state;
 
     struct {
@@ -108,6 +109,7 @@ class Bird {
         inline void undrop() {
             state.isSquatting = false;
         }   
+        // decides if bird is above another bird
         inline bool isAbove(Bird b) { 
             return (state.velocity.x != 0 && (state.position.y + bird_bbox[0].y > b.state.position.y + b.bird_bbox[1].y - 0.025 &&
                     state.position.y + bird_bbox[0].y < b.state.position.y + bird_bbox[1].y + 0.025) && // above
@@ -117,11 +119,10 @@ class Bird {
                     bird_bbox[0].x + state.position.x < b.bird_bbox[1].x + b.state.position.x))    // left edge overlap
                     );     
             }
-        inline void turnLeft() { state.direction = true; state.isMoving = true; }
-        inline void turnRight() { state.direction = false; state.isMoving = true;}
-        inline void stop() { state.isMoving = false; }
-        
-
+        inline void turnLeft() { state.isMoving = true; state.velocity.x = state.velocity.x < 0 ? state.velocity.x : 0; }
+        inline void turnRight() { state.isMoving = true; state.velocity.x = state.velocity.x > 0 ? state.velocity.x : 0; }
+        void moveLeft() { state.accel = state.accel - ACC >= -MAX_ACC ? state.accel - ACC : -MAX_ACC; } // allows for acceleration in both directions
+        void moveRight() { state.accel = state.accel + ACC <= MAX_ACC ? state.accel + ACC : MAX_ACC; }
 };
 
 #endif

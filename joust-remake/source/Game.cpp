@@ -33,14 +33,10 @@ void Game::testIntersections(Bird *b)
     } else {
       b->fall();
     }
-    if (plat_bbox[0].y < bird_bbox[1].y - TOLERANCE*2 &&  plat_bbox[1].y > bird_bbox[0].y + TOLERANCE*2 &&
+    if (plat_bbox[0].y < bird_bbox[1].y - TOLERANCE &&  plat_bbox[1].y > bird_bbox[0].y + TOLERANCE &&
         ((!b->state.direction && platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x < bird_bbox[1].x + 0.03 && platforms[i]->platform_bbox[0].x + platforms[i]->state.position.x > bird_bbox[1].x - 0.03)
         || (platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x > bird_bbox[0].x - 0.03 && platforms[i]->platform_bbox[1].x + platforms[i]->state.position.x < bird_bbox[0].x + 0.03 && b->state.direction))) {
       b->state.velocity.x = -b->state.velocity.x;
-      if (b->state.direction)
-        b->turnRight();
-      else
-        b->turnLeft();
     }
     if (p1->isAbove(*p2)) {
       p2->state.position = vec2(-1,0.25);
